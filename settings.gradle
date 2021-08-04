@@ -1,0 +1,2 @@
+rootProject.name = "GMakers-Android"
+include ':app'
