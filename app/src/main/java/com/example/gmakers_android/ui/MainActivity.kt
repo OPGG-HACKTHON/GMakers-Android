@@ -1,7 +1,8 @@
-package com.example.gmakers_android
+package com.example.gmakers_android.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.gmakers_android.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
