@@ -2,6 +2,14 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="vm"
+            type="com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel"
+            />
+    </data>
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,7 +29,8 @@
             app:layout_constraintTop_toBottomOf="@+id/id_tv">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signin_id_tv"
+                android:id="@+id/signin_id_et"
+                android:text="@={vm.userId}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="16dp"
@@ -46,8 +55,9 @@
             app:layout_constraintTop_toBottomOf="@+id/pw_tv">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/signin_pw_tv"
+                android:id="@+id/signin_pw_et"
                 android:layout_width="match_parent"
+                android:text="@={vm.userPassword}"
                 android:layout_height="wrap_content"
                 android:drawablePadding="16dp"
                 android:inputType="textPersonName"
@@ -64,6 +74,7 @@
             android:layout_height="66dp"
             android:layout_marginBottom="30dp"
             android:text="@string/do_login"
+            android:onClick="@{()->vm.doLogin()}"
             android:background="@color/primary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,6 +99,7 @@
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="@string/do_sign"
+            android:onClick="@{()->vm.goRegister()}"
             android:textColor="@color/primary"
             app:layout_constraintBottom_toTopOf="@+id/signin_btn"
             app:layout_constraintStart_toEndOf="@+id/do_register_tv" />
@@ -99,8 +111,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginTop="20dp"
             android:text="@string/do_login"
-            android:fontFamily="@font/notosans_bold"
-            android:textSize="30dp"
+            android:fontFamily="@font/notosans_regular"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/gmakers_tv" />
 
@@ -112,7 +124,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/notosans_regular"
             android:text="@string/id"
-            android:textSize="15dp"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_tv" />
 
@@ -124,7 +136,7 @@
             android:layout_marginTop="30dp"
             android:text="@string/password"
             android:fontFamily="@font/notosans_regular"
-            android:textSize="15dp"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signin_id_layout" />
 
@@ -137,7 +149,7 @@
             android:layout_marginTop="60dp"
             android:text="@string/gmakers"
             android:fontFamily="@font/azonix"
-            android:textSize="30dp"
+            android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
