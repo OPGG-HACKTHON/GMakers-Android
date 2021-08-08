@@ -8,8 +8,8 @@
             type="com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel" />
     </data>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -58,8 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="16dp"
-                android:inputType="textPersonName"
-                android:singleLine="true"
+                android:inputType="textPassword"
+                android:imeOptions="actionDone"
                 android:text="@={vm.userPassword}">
 
             </com.google.android.material.textfield.TextInputEditText>
@@ -74,6 +74,7 @@
             android:layout_marginBottom="30dp"
             android:background="@color/primary"
             android:text="@string/do_login"
+            android:onClick="@{()->vm.doLogin()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"

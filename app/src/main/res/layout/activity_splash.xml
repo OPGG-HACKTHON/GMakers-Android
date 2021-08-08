@@ -14,7 +14,7 @@
         android:fontFamily="@font/azonix"
         android:text="@string/gmakers"
         android:textColor="@color/white"
-        android:textSize="50dp"
+        android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

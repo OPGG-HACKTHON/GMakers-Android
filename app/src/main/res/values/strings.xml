@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GMakers-Android</string>
+    <string name="app_name">GMaker</string>
     <string name="sign_id">아이디를 입력해주세요</string>
     <string name="sign_pw">비밀번호를 입력해주세요</string>
     <string name="do_login">로그인</string>
