@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GMaker</string>
+    <string name="app_name">GMAKERS</string>
     <string name="sign_id">아이디를 입력해주세요</string>
     <string name="sign_pw">비밀번호를 입력해주세요</string>
     <string name="do_login">로그인</string>
@@ -8,4 +8,7 @@
     <string name="id">아이디</string>
     <string name="password">비밀번호</string>
     <string name="gmakers">G-MAKERS</string>
+    <string name="sign">가입하기</string>
+    <string name="check_password">비밀번호 확인하기</string>
+    <string name="pw_detail">8자 이상의 영문, 숫자</string>
 </resources>

@@ -19,7 +19,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signin_id_layout"
             android:layout_width="0dp"
-            android:layout_height="66dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:background="@android:color/transparent"
@@ -44,7 +44,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/signin_pw_layout"
             android:layout_width="0dp"
-            android:layout_height="66dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:background="@android:color/transparent"
@@ -70,16 +70,15 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/re_signin_pw_layout"
             android:layout_width="0dp"
-            android:layout_height="66dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="40dp"
             android:layout_marginRight="30dp"
             android:background="@android:color/transparent"
             android:paddingTop="0dp"
             app:boxBackgroundColor="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signin_pw_layout"
+            app:layout_constraintTop_toBottomOf="@+id/check_pw_tv"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -98,17 +97,17 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/register_btn"
             android:layout_width="0dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_height="66dp"
-            android:layout_marginBottom="30dp"
-            android:text="@string/do_sign"
-            android:onClick="@{()->vm.doRegister()}"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
             android:background="@color/primary"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{()->vm.doRegister()}"
+            android:text="@string/sign"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/re_signin_pw_layout">
 
         </com.google.android.material.button.MaterialButton>
 
@@ -118,19 +117,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="20dp"
+            android:fontFamily="@font/notosans_bold"
             android:text="@string/do_sign"
-            android:fontFamily="@font/notosans_regular"
-            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gmakers_tv" />
+            app:layout_constraintTop_toBottomOf="@+id/back_img" />
 
         <TextView
             android:id="@+id/id_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="10dp"
             android:fontFamily="@font/notosans_regular"
             android:text="@string/id"
             android:textSize="15sp"
@@ -142,25 +140,66 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/password"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/notosans_regular"
+            android:text="@string/password"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signin_id_layout" />
 
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="45dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.081"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_new_24" />
+
         <TextView
-            android:id="@+id/gmakers_tv"
+            android:id="@+id/check_pw_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/primary"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="60dp"
-            android:text="@string/gmakers"
-            android:fontFamily="@font/azonix"
-            android:textSize="30sp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/notosans_regular"
+            android:text="@string/check_password"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/pw_detail_tv" />
+
+        <TextView
+            android:id="@+id/pw_detail_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pw_detail"
+            android:layout_marginLeft="30dp"
+            android:textSize="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signin_pw_layout" />
+
+        <TextView
+            android:id="@+id/pw_check_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="@string/pw_detail"
+            android:textSize="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/re_signin_pw_layout" />
+
+        <TextView
+            android:id="@+id/id_check_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text=""
+            android:visibility="visible"
+            android:textSize="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signin_id_layout" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
