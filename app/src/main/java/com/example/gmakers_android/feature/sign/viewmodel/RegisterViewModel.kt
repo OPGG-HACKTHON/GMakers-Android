@@ -4,13 +4,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.gmakers_android.data.remote.register.RegisterImpl
+import com.example.gmakers_android.data.ApiProvider
+import com.example.gmakers_android.data.remote.sign.RegisterApi
 import com.example.gmakers_android.feature.sign.model.RegisterRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RegisterViewModel(private val registerImpl: RegisterImpl) : ViewModel() {
+
+class RegisterViewModel() : ViewModel() {
+    val registerInterface = ApiProvider.getClient().create(RegisterApi::class.java)
 
     val userName = MutableLiveData<String>()
     val userPassword = MutableLiveData<String>()
@@ -20,18 +23,22 @@ class RegisterViewModel(private val registerImpl: RegisterImpl) : ViewModel() {
     val toastMessage: LiveData<String> get() = _toastMessage
 
     fun doRegister() {
-        val request = RegisterRequest(userName.value!!, userPassword.value!!)
-        registerImpl.registerApi(request).subscribe({
-            when (it.code()) {
-                200 -> {
-                    _toastMessage.value = "로그인 성공입니다"
-                }
-                else -> {
-                    _toastMessage.value = "잘못된 로그인 정보입니다"
+        val registerCall = registerInterface.doRegister(RegisterRequest(userName.value!!, userPassword.value!!))
+        registerCall.enqueue(object : Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                when (response.code()) {
+                    200 -> {
+
+                    }
+                    else -> {
+
+                    }
                 }
             }
-        }, {
-            _toastMessage.value = "로그인에 실패하였습니다"
+
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
+                Log.d("RegisterActivity", t.toString())
+            }
         })
     }
 }

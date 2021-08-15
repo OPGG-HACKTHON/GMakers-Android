@@ -19,7 +19,6 @@ abstract class BaseActivity<B : ViewDataBinding>(
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, layoutResId)
         binding.lifecycleOwner = this
-        //binding.setVariable(BR.vm, vm)
     }
 
 }
