@@ -10,5 +10,6 @@
     <string name="gmakers">G-MAKERS</string>
     <string name="sign">가입하기</string>
     <string name="check_password">비밀번호 확인하기</string>
-    <string name="pw_detail">8자 이상의 영문, 숫자</string>
+    <string name="pw_detail">8자~20자 영문, 숫자자로 입력해주세요</string>
+    <string name="different_password">비밀번호가 다릅니다</string>
 </resources>

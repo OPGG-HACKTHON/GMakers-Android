@@ -1,22 +1,49 @@
 package com.example.gmakers_android.feature.sign.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
+import com.example.gmakers_android.R
+import com.example.gmakers_android.data.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityRegisterBinding
 import com.example.gmakers_android.feature.sign.viewmodel.RegisterViewModel
 
-class RegisterActivity : AppCompatActivity() {
+class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
 
-    val vm: RegisterViewModel by viewModels()
-    private lateinit var binding: ActivityRegisterBinding
+    override val vm: RegisterViewModel by viewModels()
 
-    private fun passwordErrorMessage() {
-        if (vm.nEmptyPassword.value!!) {
-            binding.signinIdLayout.error = null
-        } else {
-            binding.signinPwLayout.error = "8~20자리 사이의 비밀번호를 입력해주세요"
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding.lifecycleOwner = this
+        backClick()
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        successRegister()
+    }
+
+    fun samePassword(){
+        if(vm.userPassword != vm.userRePassword){
+            binding.pwCheckTv.visibility
         }
     }
 
+    fun backClick(){
+        binding.backImg.setOnClickListener {
+            val intent= Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun successRegister(){
+        vm.run {
+            toastMessage.observe(this@RegisterActivity, { message ->
+                Toast.makeText(this@RegisterActivity, message, Toast.LENGTH_SHORT).show()
+            })
+        }
+    }
 }
