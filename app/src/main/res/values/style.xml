@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="text">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="body1" parent="text">
+        <item name="android:fontFamily">@font/notosans_regular</item>
+        <item name="android:textSize">12dp</item>
+        <item name="lineHeight">18dp</item>
+    </style>
+</resources>
