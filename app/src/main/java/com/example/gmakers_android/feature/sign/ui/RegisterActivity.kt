@@ -12,11 +12,12 @@ import com.example.gmakers_android.feature.sign.viewmodel.RegisterViewModel
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity_register) {
 
-    override val vm: RegisterViewModel by viewModels()
+    override val vm: RegisterViewModel = RegisterViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
+        binding.vm = vm
         backClick()
 
     }
@@ -24,12 +25,8 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
     override fun onStart() {
         super.onStart()
         successRegister()
-    }
 
-    fun samePassword(){
-        if(vm.userPassword != vm.userRePassword){
-            binding.pwCheckTv.visibility
-        }
+
     }
 
     fun backClick(){
@@ -46,4 +43,5 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
             })
         }
     }
+
 }
