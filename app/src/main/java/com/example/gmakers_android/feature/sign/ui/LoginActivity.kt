@@ -11,6 +11,7 @@ import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.databinding.ActivityLoginBinding
 import com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel
 import com.example.gmakers_android.feature.sign.viewmodel.RegisterViewModel
+import com.example.gmakers_android.ui.MainActivity
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
@@ -35,6 +36,10 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
         vm.run {
             toastMessage.observe(this@LoginActivity, { message ->
                 Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
+
+                // login 성공하면 main activity로 이동
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             })
         }
     }

@@ -183,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:text="@{vm.pwCheck}"
-            android:textColor="@color/red_0"
+            android:textColor="@color/secondary_red"
             android:textSize="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/re_signin_pw_layout" />
