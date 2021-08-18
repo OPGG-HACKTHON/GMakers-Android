@@ -1,11 +1,10 @@
-package com.example.gmakers_android.data.base
+package com.example.gmakers_android.base
 
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.ViewModel
 
 abstract class BaseActivity<B : ViewDataBinding>(

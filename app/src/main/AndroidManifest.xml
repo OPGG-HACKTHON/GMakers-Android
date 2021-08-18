@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.GMakersAndroid"
+        android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory"
         tools:targetApi="p">
         <activity android:name=".feature.sign.ui.RegisterActivity" />
@@ -27,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".feature.sign.ui.LoginActivity" />
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".feature.main.ui.MainActivity" />
     </application>
 
 </manifest>

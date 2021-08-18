@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="335:232"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/profile_card_background_primary">
+
+            <TextView
+                android:id="@+id/tier_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="24dp"
+                android:textSize="12dp"
+                android:fontFamily="@font/azonix"
+                android:includeFontPadding="false"/>
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/gmakers_iv"
+                android:layout_width="68dp"
+                android:layout_height="8dp"
+                android:src="@drawable/main_title_primary"
+                android:tint="@color/gray0"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="24dp"/>
+
+            <ImageView
+                android:id="@+id/tier_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/level_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="24dp"
+                android:layout_marginBottom="46dp"
+                style="@style/body1"/>
+
+            <TextView
+                android:id="@+id/summoner_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="24dp"
+                android:layout_marginBottom="24dp"
+                style="@style/subhead3"/>
+
+            <ImageView
+                android:id="@+id/lane_01_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="46dp"
+                android:layout_marginBottom="24dp"/>
+
+            <ImageView
+                android:id="@+id/lane_02_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="24dp"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
