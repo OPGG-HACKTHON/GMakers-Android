@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".feature.sign.ui.LoginActivity" />
-        <activity android:name=".ui.MainActivity" />
+        <activity android:name=".feature.main.ui.MainActivity" />
     </application>
 
 </manifest>

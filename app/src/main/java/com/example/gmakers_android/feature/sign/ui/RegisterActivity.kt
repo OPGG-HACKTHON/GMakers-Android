@@ -2,11 +2,9 @@ package com.example.gmakers_android.feature.sign.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
-import androidx.activity.viewModels
 import com.example.gmakers_android.R
-import com.example.gmakers_android.data.base.BaseActivity
+import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityRegisterBinding
 import com.example.gmakers_android.feature.sign.viewmodel.RegisterViewModel
 

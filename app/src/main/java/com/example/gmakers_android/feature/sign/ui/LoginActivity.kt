@@ -2,16 +2,12 @@ package com.example.gmakers_android.feature.sign.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.widget.Toast
-import androidx.activity.viewModels
 import com.example.gmakers_android.R
-import com.example.gmakers_android.data.base.BaseActivity
-import com.example.gmakers_android.data.local.SharedPreferenceStorage
+import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityLoginBinding
 import com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel
-import com.example.gmakers_android.feature.sign.viewmodel.RegisterViewModel
-import com.example.gmakers_android.ui.MainActivity
+import com.example.gmakers_android.feature.main.ui.MainActivity
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
