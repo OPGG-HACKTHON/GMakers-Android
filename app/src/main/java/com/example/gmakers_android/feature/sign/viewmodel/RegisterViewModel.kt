@@ -34,30 +34,33 @@ class RegisterViewModel() : ViewModel() {
         }
     }
 
-
     fun doRegister() {
-        if (userPassword.value == userRePassword.value) {
-            val registerCall = registerInterface.doRegister(
-                RegisterRequest(
-                    userName.value!!,
-                    userPassword.value!!
+        if (userPassword.value?.length.toString() >= 8.toString() || userPassword.value?.length.toString() <= 20.toString()) {
+            if (userPassword.value == userRePassword.value) {
+                val registerCall = registerInterface.doRegister(
+                    RegisterRequest(
+                        userName.value!!,
+                        userPassword.value!!
+                    )
                 )
-            )
-            registerCall.enqueue(object : Callback<Unit> {
-                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                    when (response.code()) {
-                        201 -> {
-                            _toastMessage.value = "성공"
+                registerCall.enqueue(object : Callback<Unit> {
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                        when (response.code()) {
+                            201 -> {
+                                _toastMessage.value = "성공"
+                            }
                         }
                     }
-                }
 
-                override fun onFailure(call: Call<Unit>, t: Throwable) {
-                    t.message?.let { Log.d(TAG, it) }
-                }
-            })
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        _toastMessage.value = "회원가입에 실패했습니다"
+                    }
+                })
+            } else {
+                pwCheck()
+            }
         } else {
-            pwCheck()
+            _toastMessage.value = "비밀번호 형식에 맞추어 입력해주세요"
         }
     }
 }
