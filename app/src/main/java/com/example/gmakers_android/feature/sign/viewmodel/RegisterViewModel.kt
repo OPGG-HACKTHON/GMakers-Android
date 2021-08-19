@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.gmakers_android.data.ApiProvider
+import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.sign.RegisterApi
 import com.example.gmakers_android.feature.sign.model.RegisterRequest
 import retrofit2.Call
