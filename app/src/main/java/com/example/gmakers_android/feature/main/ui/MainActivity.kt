@@ -1,5 +1,6 @@
 package com.example.gmakers_android.feature.main.ui
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
@@ -12,6 +13,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding.addIv.setOnClickListener {
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
