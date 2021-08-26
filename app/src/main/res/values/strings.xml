@@ -13,4 +13,23 @@
     <string name="pw_detail">8자~20자 영문, 숫자로 입력해주세요</string>
     <string name="different_password">비밀번호가 다릅니다</string>
     <string name="search_summoner">소환사 검색</string>
+    <string name="profile_basicInfo">프로필 기본정보</string>
+    <string name="simple_intro">1.간단소개</string>
+    <string name="want_intro">2.성향 기워드</string>
+    <string name="position_intro">3.포지션</string>
+    <string name="first_check">1순위</string>
+    <string name="second_check">2순위</string>
+    <string name="finish">완료</string>
+    <string name="show_lank">4. 표시 할 랭크</string>
+    <string name="basic_info">기본 설정</string>
+    <string name="edit_basic_info">기본 정보 수정</string>
+    <string name="change_info">항목 변경</string>
+    <string name="change_order">순서 변경</string>
+    <string name="other_info">추가 정보</string>
+    <string name="want_champion">선호 챔피언</string>
+    <string name="go_degisn">디자인</string>
+    <string name="change_theme">테마 변경</string>
+    <string name="edit_profile">프로필 편집</string>
+
+
 </resources>
