@@ -1,4 +1,7 @@
 package com.example.gmakers_android.feature.profile.viewmodel
 
-class EditProfileViewModel {
+import androidx.lifecycle.ViewModel
+
+class EditProfileViewModel(): ViewModel() {
+
 }

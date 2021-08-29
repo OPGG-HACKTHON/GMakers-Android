@@ -17,10 +17,10 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:appComponentFactory"
         tools:targetApi="p">
-        <activity android:name=".feature.profile.ui.EditProfileStartActivity"></activity>
         <activity android:name=".feature.profile.ui.EditProfileActivity" />
         <activity android:name=".feature.sign.ui.RegisterActivity" />
-        <activity android:name=".feature.sign.ui.SplashActivity">
+        <activity android:name=".feature.sign.ui.SplashActivity"/>
+        <activity android:name=".feature.profile.ui.EditProfileStartActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
