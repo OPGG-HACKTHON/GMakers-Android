@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="linkArray">
+        <item>@string/keyword1</item>
+        <item>@string/keyword2</item>
+        <item>@string/keyword3</item>
+        <item>@string/keyword4</item>
+        <item>@string/keyword5</item>
+        <item>@string/keyword6</item>
+        <item>@string/keyword7</item>
+        <item>@string/keyword8</item>
+        <item>@string/keyword9</item>
+        <item>@string/keyword10</item>
+        <item>@string/keyword11</item>
+    </string-array>
+
+</resources>
