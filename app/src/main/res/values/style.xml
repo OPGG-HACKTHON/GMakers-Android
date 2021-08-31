@@ -23,4 +23,10 @@
         <item name="android:fontFamily">@font/notosans_bold</item>
     </style>
 
+    <style name="profile_tab" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16dp</item>
+        <item name="lineHeight">22dp</item>
+        <item name="android:fontFamily">@font/notosans_bold</item>
+    </style>
+
 </resources>

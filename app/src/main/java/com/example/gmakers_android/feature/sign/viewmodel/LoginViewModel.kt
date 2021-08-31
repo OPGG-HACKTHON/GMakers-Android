@@ -1,8 +1,10 @@
 package com.example.gmakers_android.feature.sign.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.sign.SignApi
@@ -33,6 +35,10 @@ class LoginViewModel() : ViewModel() {
                 ) {
                     if (response.isSuccessful) {
                         _toastMessage.value = "로그인 성공"
+                        response.body()?.let {
+                            SharedPreferenceStorage(MainApplication.context()).saveInfo(it.token, "access_token")
+                            Log.d("token", "token : ${it.token}")
+                        }
                     }
                 }
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

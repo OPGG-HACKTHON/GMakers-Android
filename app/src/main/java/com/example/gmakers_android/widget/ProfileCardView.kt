@@ -46,10 +46,12 @@ class ProfileCardView @JvmOverloads constructor(
     var lane01: Int = 0
         set(value) {
             binding.lane01Iv.setImageResource(value)
+            field = value
         }
 
     var lane02: Int = 0
         set(value) {
             binding.lane02Iv.setImageResource(value)
+            field = value
         }
 }
