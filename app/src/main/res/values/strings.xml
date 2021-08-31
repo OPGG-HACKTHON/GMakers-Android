@@ -14,13 +14,12 @@
     <string name="different_password">비밀번호가 다릅니다</string>
     <string name="search_summoner">소환사 검색</string>
     <string name="profile_basicInfo">프로필 기본정보</string>
-    <string name="simple_intro">1.간단소개</string>
-    <string name="want_intro">2.성향 기워드</string>
-    <string name="position_intro">3.포지션</string>
+    <string name="want_intro">성향 기워드</string>
+    <string name="position_intro">포지션</string>
     <string name="first_check">1순위</string>
     <string name="second_check">2순위</string>
     <string name="finish">완료</string>
-    <string name="show_lank">4. 표시 할 랭크</string>
+    <string name="show_lank">표시 할 랭크</string>
     <string name="basic_info">기본 설정</string>
     <string name="edit_basic_info">기본 정보 수정</string>
     <string name="change_info">항목 변경</string>
@@ -30,6 +29,27 @@
     <string name="go_degisn">디자인</string>
     <string name="change_theme">테마 변경</string>
     <string name="edit_profile">프로필 편집</string>
-
+    <string name="make_profile">프로필 생성</string>
+    <string name="basic_info_lang">1. 기본 정보를 입력해 주세요</string>
+    <string name="finish_edit">프로필 생성이 완료되었습니다!</string>
+    <string name="start_custom">계정 인증을 인증하고 커스터마이징 해보세요!</string>
+    <string name="next_certification">다음에 하기</string>
+    <string name="start_certification">계정 인증하기</string>
+    <string name="champion_name">소환사명</string>
+    <string name="simple_intro">간단소개</string>
+    <string name="keyword1">망나니</string>
+    <string name="keyword2">스플릿</string>
+    <string name="keyword3">탱커</string>
+    <string name="keyword4">갱킹</string>
+    <string name="keyword5">오브젝트 지향</string>
+    <string name="keyword6">로밍</string>
+    <string name="keyword7">암살자</string>
+    <string name="keyword8">성장형</string>
+    <string name="keyword9">유틸형</string>
+    <string name="keyword10">전투민족</string>
+    <string name="keyword11">한타지향</string>
+    <string name="RANKED_SOLO">RANKED_SOLO</string>
+    <string name="RANKED_FLEX">RANKED_FLEX</string>
+    <string name="NONE">NONE</string>
 
 </resources>
