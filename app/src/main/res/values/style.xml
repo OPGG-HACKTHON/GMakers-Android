@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="text">
         <item name="android:includeFontPadding">false</item>
         <item name="android:fontFamily">@font/notosans_regular</item>
     </style>
+
     <style name="body1" parent="text">
         <item name="android:textSize">12dp</item>
         <item name="lineHeight">18dp</item>
     </style>
+
+    <style name="subhead2" parent="text">
+        <item name="android:textSize">14dp</item>
+        <item name="lineHeight">20dp</item>
+        <item name="android:fontFamily">@font/notosans_bold</item>
+    </style>
+
     <style name="subhead3" parent="text">
         <item name="android:textSize">16dp</item>
         <item name="lineHeight">22dp</item>
+        <item name="android:fontFamily">@font/notosans_bold</item>
     </style>
+
+    <style name="profile_tab" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">16dp</item>
+        <item name="lineHeight">22dp</item>
+        <item name="android:fontFamily">@font/notosans_bold</item>
+    </style>
+
 </resources>

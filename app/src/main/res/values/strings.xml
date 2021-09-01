@@ -13,4 +13,6 @@
     <string name="pw_detail">8자~20자 영문, 숫자로 입력해주세요</string>
     <string name="different_password">비밀번호가 다릅니다</string>
     <string name="search_summoner">소환사 검색</string>
+    <string name="authorize_account">계정 인증하기</string>
+    <string name="authorize_account_desc">본인 계정을 인증하고 나만의 프로필을 만들어 보세요.</string>
 </resources>
