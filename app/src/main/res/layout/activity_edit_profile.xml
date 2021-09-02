@@ -161,8 +161,8 @@
                         android:layout_marginStart="34dp"
                         android:fontFamily="@font/notosans_bold"
                         android:text="@string/champion_name"
-                        android:textSize="10sp"
                         android:textColor="@color/gray5"
+                        android:textSize="10sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/simple_tv" />
 
@@ -174,8 +174,8 @@
                         android:layout_marginTop="0dp"
                         android:fontFamily="@font/notosans_bold"
                         android:text="@string/simple_intro"
-                        android:textSize="10sp"
                         android:textColor="@color/gray5"
+                        android:textSize="10sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/intro_layout" />
 
@@ -191,115 +191,134 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky1"
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="34dp"
-                        android:text="@string/keyword1"
-                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.493"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
+                        app:layout_constraintTop_toBottomOf="@+id/keyword_tv"
+                        app:singleSelection="false">
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword2"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky1"
-                        app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword3"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky2"
-                        app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky1"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="34dp"
+                            android:text="@string/keyword1"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword4"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky3"
-                        app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky2"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="@string/keyword2"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky1"
+                            app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword5"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky4"
-                        app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky3"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="@string/keyword3"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky2"
+                            app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:text="@string/keyword6"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/ky1" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky4"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="@string/keyword4"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky3"
+                            app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword7"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky6"
-                        app:layout_constraintTop_toBottomOf="@+id/ky2" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky5"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="2dp"
+                            android:text="@string/keyword5"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky4"
+                            app:layout_constraintTop_toBottomOf="@+id/keyword_tv" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword8"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky7"
-                        app:layout_constraintTop_toBottomOf="@+id/ky3" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky6"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:text="@string/keyword6"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ky1" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword9"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky8"
-                        app:layout_constraintTop_toBottomOf="@+id/ky4" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky7"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keyword7"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky6"
+                            app:layout_constraintTop_toBottomOf="@+id/ky2" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword10"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky9"
-                        app:layout_constraintTop_toBottomOf="@+id/ky5" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky8"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keyword8"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky7"
+                            app:layout_constraintTop_toBottomOf="@+id/ky3" />
 
-                    <com.google.android.material.chip.Chip
-                        android:id="@+id/ky11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="2dp"
-                        android:text="@string/keyword11"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toEndOf="@+id/ky10"
-                        app:layout_constraintTop_toBottomOf="@+id/ky5" />
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky9"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keyword9"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky8"
+                            app:layout_constraintTop_toBottomOf="@+id/ky4" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky10"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keyword10"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky9"
+                            app:layout_constraintTop_toBottomOf="@+id/ky5" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ky11"
+                            style="@style/CustomChipStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/keyword11"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/ky10"
+                            app:layout_constraintTop_toBottomOf="@+id/ky5" />
+
+                    </com.google.android.material.chip.ChipGroup>
+
 
                     <TextView
                         android:id="@+id/keyword_tv"
@@ -402,6 +421,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="34dp"
                         android:entries="@array/rankArray"
+                        android:tooltipText="@{vm.userRank}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/lank_tv" />
 
