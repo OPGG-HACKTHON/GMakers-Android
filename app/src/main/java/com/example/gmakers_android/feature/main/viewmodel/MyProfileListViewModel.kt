@@ -19,7 +19,7 @@ class MyProfileListViewModel() : ViewModel() {
     val profiles: LiveData<List<Profile>> = _profiles
 
     fun getProfiles() {
-        val token = SharedPreferenceStorage(MainApplication.context()).getInfo("access_token")
+        val token = SharedPreferenceStorage.getInfo("access_token")
         profileInterface.getProfiles(token).enqueue(object : Callback<List<Profile>> {
             override fun onResponse(
                 call: Call<List<Profile>>,

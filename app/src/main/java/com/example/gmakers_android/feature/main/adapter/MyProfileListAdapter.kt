@@ -42,6 +42,8 @@ class MyProfileListAdapter(private val profiles: List<Profile>): RecyclerView.Ad
                     1 -> binding.profileCardView.lane02 = ImageMappingUtil.getPositionImageResource(preferLine.line)
                 }
             }
+
+            binding.profileCardView.verified = profile.certified
         }
     }
 }
