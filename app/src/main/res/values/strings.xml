@@ -16,4 +16,5 @@
     <string name="authorize_account">계정 인증하기</string>
     <string name="authorize_account_desc">본인 계정을 인증하고 나만의 프로필을 만들어 보세요.</string>
     <string name="unverifired">UNVERIFIED</string>
+    <string name="prefer_champion">선호 챔피언</string>
 </resources>

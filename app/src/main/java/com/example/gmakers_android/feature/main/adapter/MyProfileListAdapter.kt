@@ -9,6 +9,11 @@ import com.example.gmakers_android.util.ImageMappingUtil
 
 class MyProfileListAdapter(private val profiles: List<Profile>): RecyclerView.Adapter<MyProfileListAdapter.ViewHolder>() {
 
+    interface ItemClickListener{
+        fun onItemClick(profile: Profile)
+    }
+    var itemClickListener: ItemClickListener? = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ListItemMyProfileBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
@@ -44,6 +49,10 @@ class MyProfileListAdapter(private val profiles: List<Profile>): RecyclerView.Ad
             }
 
             binding.profileCardView.verified = profile.certified
+
+            binding.root.setOnClickListener {
+                itemClickListener?.onItemClick(profile)
+            }
         }
     }
 }
