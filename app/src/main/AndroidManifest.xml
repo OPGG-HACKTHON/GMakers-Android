@@ -31,6 +31,7 @@
         <activity android:name=".feature.main.ui.ProfileActivity" />
         <activity android:name=".feature.detail.ui.ProfileDetailActivity" />
         <activity android:name=".feature.verify.ui.VerifyActivity" />
+        <activity android:name=".feature.search.ui.SearchActivity" />
     </application>
 
 </manifest>

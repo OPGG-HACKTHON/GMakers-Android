@@ -16,6 +16,11 @@
         <item name="lineHeight">22dp</item>
     </style>
 
+    <style name="body3" parent="text">
+        <item name="android:textSize">16dp</item>
+        <item name="lineHeight">24dp</item>
+    </style>
+
     <style name="subhead2" parent="text">
         <item name="android:textSize">14dp</item>
         <item name="lineHeight">20dp</item>
