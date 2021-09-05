@@ -11,6 +11,11 @@
         <item name="lineHeight">18dp</item>
     </style>
 
+    <style name="body2" parent="text">
+        <item name="android:textSize">14dp</item>
+        <item name="lineHeight">22dp</item>
+    </style>
+
     <style name="subhead2" parent="text">
         <item name="android:textSize">14dp</item>
         <item name="lineHeight">20dp</item>
@@ -20,6 +25,12 @@
     <style name="subhead3" parent="text">
         <item name="android:textSize">16dp</item>
         <item name="lineHeight">22dp</item>
+        <item name="android:fontFamily">@font/notosans_bold</item>
+    </style>
+
+    <style name="display3" parent="text">
+        <item name="android:textSize">32dp</item>
+        <item name="lineHeight">42dp</item>
         <item name="android:fontFamily">@font/notosans_bold</item>
     </style>
 

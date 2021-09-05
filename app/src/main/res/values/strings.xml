@@ -15,4 +15,15 @@
     <string name="search_summoner">소환사 검색</string>
     <string name="authorize_account">계정 인증하기</string>
     <string name="authorize_account_desc">본인 계정을 인증하고 나만의 프로필을 만들어 보세요.</string>
+    <string name="unverifired">UNVERIFIED</string>
+    <string name="prefer_champion">선호 챔피언</string>
+    <string name="authorize_account_2">계정 인증</string>
+    <string name="authorize_account_desc_2">1.소환사 아이콘을 제시된 이미지로 변경해주세요.</string>
+    <string name="refresh">새로고침</string>
+    <string name="other_summoner_icon">다른 소환사 아이콘</string>
+    <string name="changed">변경했습니다.</string>
+    <string name="confirming">확인 중...</string>
+    <string name="auth_fail_msg">입력 값이 올바르지 않습니다. 다시 한 번 확인해 주세요.</string>
+    <string name="auth_success_msg">2.계정 인증이 완료되었습니다.</string>
+    <string name="ok">완료</string>
 </resources>

@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel( private val sharedPreferenceStorage : SharedPreferenceStorage) : ViewModel() {
+class LoginViewModel() : ViewModel() {
 
     val loginInterface = ApiProvider.getInstnace().create(SignApi::class.java)
 
@@ -34,10 +34,10 @@ class LoginViewModel( private val sharedPreferenceStorage : SharedPreferenceStor
                 ) {
                     if (response.isSuccessful) {
                         _toastMessage.value = "로그인 성공"
-                        sharedPreferenceStorage.saveInfo(userId.value!!,"user_email")
-                        sharedPreferenceStorage.saveInfo(userPassword.value!!,"user_password")
+                        SharedPreferenceStorage.saveInfo(userId.value!!,"user_email")
+                        SharedPreferenceStorage.saveInfo(userPassword.value!!,"user_password")
                     }
-                    sharedPreferenceStorage.saveInfo(response.body()!!.token,"access_token")
+                    SharedPreferenceStorage.saveInfo(response.body()!!.token,"access_token")
                 }
                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                     _toastMessage.value = "로그인 실패"

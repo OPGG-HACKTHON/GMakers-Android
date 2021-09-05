@@ -29,6 +29,8 @@
         <activity android:name=".feature.sign.ui.LoginActivity" />
         <activity android:name=".feature.main.ui.MainActivity" />
         <activity android:name=".feature.main.ui.ProfileActivity" />
+        <activity android:name=".feature.detail.ui.ProfileDetailActivity" />
+        <activity android:name=".feature.verify.ui.VerifyActivity" />
     </application>
 
 </manifest>
