@@ -1,10 +1,13 @@
 package com.example.gmakers_android.feature.detail.ui
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityProfileDetailBinding
 import com.example.gmakers_android.feature.detail.viewmodel.ProfileDetailViewModel
+import com.example.gmakers_android.feature.verify.ui.VerifyActivity
 import com.example.gmakers_android.util.ImageMappingUtil
 import com.google.android.material.chip.Chip
 
@@ -20,26 +23,35 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
         super.onCreate(savedInstanceState)
 
         // observe
-        initObsever()
+        initObserver()
 
-        // listner
+        // listener
         binding.authTv.setOnClickListener {
-
+            vm.profile.value?.let {
+                val intent = Intent(this@ProfileDetailActivity, VerifyActivity::class.java)
+                intent.putExtra(VerifyActivity.INTENT_KEY_PROFILE, it)
+                startActivity(intent)
+            }
         }
+    }
 
-        // first exec
+    override fun onStart() {
+        super.onStart()
+
         val profileId = intent.getIntExtra(INTENT_KEY_PROFILE_ID, -1)
         if (profileId == -1) return
 
         vm.getDetailProfile(profileId)
     }
 
-    private fun initObsever() {
+    private fun initObserver() {
         vm.profile.observe(this, {
             if (it.certified) {
                 binding.root.setBackgroundResource(R.drawable.background_profile_detail_verified)
+                binding.authTv.visibility = View.GONE
             } else {
                 binding.root.setBackgroundResource(R.drawable.background_profile_detail_unverified)
+                binding.authTv.visibility = View.VISIBLE
             }
 
             // profile card

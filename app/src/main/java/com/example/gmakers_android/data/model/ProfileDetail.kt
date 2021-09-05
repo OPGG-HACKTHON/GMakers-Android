@@ -1,5 +1,9 @@
 package com.example.gmakers_android.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ProfileDetail(
     val accountId: Int,
     val username: String,
@@ -22,4 +26,4 @@ data class ProfileDetail(
     val preferLines: List<PreferLine>,
     val preferKeyword: List<PreferKeyword>?,
     val certified: Boolean
-)
+): Parcelable
