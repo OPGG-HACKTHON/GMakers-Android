@@ -17,6 +17,7 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
 
     companion object {
         const val INTENT_KEY_PROFILE_ID = "intent_key_profile_id"
+        const val INTENT_KEY_PROFILE_OWNER = "intent_key_profile_owner"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +33,11 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
                 intent.putExtra(VerifyActivity.INTENT_KEY_PROFILE, it)
                 startActivity(intent)
             }
+        }
+
+        val profileOwner = intent.getBooleanExtra(INTENT_KEY_PROFILE_OWNER, true)
+        if (!profileOwner) {
+            binding.modifyIv.visibility = View.GONE
         }
     }
 

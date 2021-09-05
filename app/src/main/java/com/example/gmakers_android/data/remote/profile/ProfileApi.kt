@@ -6,11 +6,18 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ProfileApi {
     @GET("api/profiles")
     fun getProfiles(
         @Header("Authorization") token: String
+    ): Call<List<Profile>>
+
+    @GET("api/profiles")
+    fun getProfiles(
+        @Header("Authorization") token: String,
+        @Query("summonerName") summonerName: String
     ): Call<List<Profile>>
 
     @GET("api/profiles/{profileId}")
