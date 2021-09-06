@@ -3,6 +3,7 @@ package com.example.gmakers_android.widget
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import com.example.gmakers_android.R
@@ -46,10 +47,24 @@ class ProfileCardView @JvmOverloads constructor(
     var lane01: Int = 0
         set(value) {
             binding.lane01Iv.setImageResource(value)
+            field = value
         }
 
     var lane02: Int = 0
         set(value) {
             binding.lane02Iv.setImageResource(value)
+            field = value
+        }
+
+    var verified: Boolean = false
+        set(value) {
+            if (value) {
+                binding.parentLayout.setBackgroundResource(R.drawable.profile_card_background_primary)
+                binding.verifiedTv.visibility = View.GONE
+            } else {
+                binding.parentLayout.setBackgroundResource(R.drawable.background_greyscale)
+                binding.verifiedTv.visibility = View.VISIBLE
+            }
+            field = value
         }
 }

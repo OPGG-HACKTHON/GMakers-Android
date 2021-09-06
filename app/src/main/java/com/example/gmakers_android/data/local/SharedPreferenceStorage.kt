@@ -2,9 +2,11 @@ package com.example.gmakers_android.data.local
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.gmakers_android.MainApplication
 
-class SharedPreferenceStorage(private val context: Context){
+object SharedPreferenceStorage{
     private var pref: SharedPreferences? = null
+    private val context = MainApplication.context()
 
     fun getInfo(content: String?): String{
         if(pref == null)pref = context.getSharedPreferences(content, Context.MODE_PRIVATE)

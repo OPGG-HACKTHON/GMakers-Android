@@ -82,6 +82,32 @@
                 android:layout_marginRight="18dp"/>
             
         </LinearLayout>
+        
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/profile_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="136dp"
+            android:layout_marginLeft="20dp"
+            app:tabPaddingStart="7dp"
+            app:tabPaddingEnd="7dp"
+            app:tabTextColor="@color/gray4"
+            app:tabSelectedTextColor="@color/gray9"
+            app:tabIndicatorColor="@color/primary_dark"
+            app:tabTextAppearance="@style/profile_tab"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/profile_vp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="188dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

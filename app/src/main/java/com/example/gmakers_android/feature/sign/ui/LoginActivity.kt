@@ -1,19 +1,17 @@
 package com.example.gmakers_android.feature.sign.ui
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
-import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.databinding.ActivityLoginBinding
-import com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel
 import com.example.gmakers_android.feature.main.ui.MainActivity
+import com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
-    override val vm: LoginViewModel = LoginViewModel(SharedPreferenceStorage(this))
+    override val vm: LoginViewModel = LoginViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
