@@ -48,6 +48,7 @@ class RegisterViewModel() : ViewModel() {
                         when (response.code()) {
                             201 -> {
                                 _toastMessage.value = "성공"
+
                             }
                         }
                     }

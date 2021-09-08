@@ -12,7 +12,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel() : ViewModel() {
+class LoginViewModel(private val sharedPreferenceStorage: SharedPreferenceStorage) : ViewModel() {
 
     val loginInterface = ApiProvider.getInstnace().create(SignApi::class.java)
 
@@ -23,10 +23,12 @@ class LoginViewModel() : ViewModel() {
     private val _toastMessage = MutableLiveData<String>()
     val toastMessage: LiveData<String> get() = _toastMessage
 
+    val token:String = ""
 
     fun doLogin() {
+        val accessToken = sharedPreferenceStorage.saveInfo("access_token",token)
         val loginCall =
-            loginInterface.doLogin(LoginRequest(userId.value!!, userPassword.value!!))
+            loginInterface.doLogin(accessToken,LoginRequest(userId.value!!, userPassword.value!!))
         loginCall.enqueue(object : Callback<LoginResponse> {
             override fun onResponse(
                 call: Call<LoginResponse>,
@@ -37,7 +39,7 @@ class LoginViewModel() : ViewModel() {
                     SharedPreferenceStorage.saveInfo(userId.value!!, "user_email")
                     SharedPreferenceStorage.saveInfo(userPassword.value!!, "user_password")
                 }
-                    SharedPreferenceStorage.saveInfo(response.body()!!.token, "access_token")
+                    SharedPreferenceStorage.saveInfo(token,"access_token")
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
