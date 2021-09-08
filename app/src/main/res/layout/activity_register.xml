@@ -100,6 +100,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="28dp"
             android:layout_marginRight="30dp"
+            android:textColor="@color/white"
             android:background="@drawable/shape_purple_1"
             android:onClick="@{()->vm.doRegister()}"
             android:text="@string/sign"

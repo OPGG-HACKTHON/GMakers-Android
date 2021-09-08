@@ -73,6 +73,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/shape_purple_1"
+            android:textColor="@color/white"
             android:onClick="@{()->vm.doLogin()}"
             android:text="@string/do_login"
             app:layout_constraintEnd_toEndOf="parent"
