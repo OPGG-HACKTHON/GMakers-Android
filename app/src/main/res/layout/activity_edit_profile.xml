@@ -22,14 +22,16 @@
             android:layout_width="0dp"
             android:layout_height="66dp"
             android:layout_marginStart="34dp"
-            android:textColor="@color/white"
             android:layout_marginEnd="34dp"
-            android:layout_marginBottom="20dp"
+            android:onClick="@{()->vm.editProfileAll()}"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/shape_purple_1"
             android:fontFamily="@font/notosans_bold"
             android:text="@string/finish"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -464,6 +466,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/intro_title"
             app:srcCompat="@drawable/edit_grape" />
+
+        <TextView
+            android:id="@+id/comment_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{vm.comment}"
+            app:layout_constraintBottom_toTopOf="@+id/finish_btn"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

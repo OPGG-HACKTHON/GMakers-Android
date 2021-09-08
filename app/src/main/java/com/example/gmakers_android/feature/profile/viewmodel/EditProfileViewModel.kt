@@ -1,17 +1,21 @@
 package com.example.gmakers_android.feature.profile.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.gmakers_android.data.ApiProvider
+import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.editprofile.EditProfileApi
 import com.example.gmakers_android.feature.profile.model.ChampionRequest
 import com.example.gmakers_android.feature.profile.model.EditProfileRequest
 import com.example.gmakers_android.feature.profile.model.LineRequest
+import com.example.gmakers_android.feature.sign.model.RegisterRequest
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
+import retrofit2.Callback
 
-class EditProfileViewModel() : ViewModel() {
+class EditProfileViewModel(private val sharedPreferenceStorage: SharedPreferenceStorage) :
+    ViewModel() {
 
     val profileInterface = ApiProvider.getInstnace().create(EditProfileApi::class.java)
 
@@ -28,37 +32,34 @@ class EditProfileViewModel() : ViewModel() {
 
     val userRank = MutableLiveData<String>()
 
+    private val _Check = MutableLiveData<Boolean>()
+    val Check: LiveData<Boolean> get() = _Check
+
+    private val _comment = MutableLiveData<String>()
+    val comment: LiveData<String> get() = _comment
+
 
     fun editProfileAll() {
-        val requestCall = profileInterface.editProfile(
-            EditProfileRequest(
-                userName.value!!,
-                userComment.value!!,
-                keyword.value!!,
-                preferChampions.value!!,
-                preferLines.value!!,
-                userRank.value!!
-            )
+        val accessToeken = sharedPreferenceStorage.getInfo("access_toekn")
+        val request = EditProfileRequest(
+            userName.value!!,
+            userComment.value!!,
+            keyword.value!!,
+            preferChampions.value!!,
+            preferLines.value!!,
+            userRank.value!!
         )
+        if (request == null) {
+            profileInterface.editProfile(accessToeken, request).enqueue(object : Callback<Unit> {
+                override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                    _comment.value = "프로필 생성 성공"
+                }
 
-
-        fun championClick() {
-            preferChampions.value?.add(
-                ChampionRequest(
-                    priority.value!!,
-                    championId.value!!,
-                    TODO()
-                )
-            )
+                override fun onFailure(call: Call<Unit>, t: Throwable) {
+                    _comment.value = "프로필을 다시 입력해주세요"
+                }
+            })
         }
-
-        fun LineClick() {
-            preferLines.value?.add(LineRequest(priority.value!!, line.value!!, TODO()))
-        }
-
-        fun putRank() {
-
-
-        }
+        _comment.value = "빠진 곳이 없는지 확인 후에 다시 시도해주세요!😃"
     }
 }
