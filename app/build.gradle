@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
-apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -32,8 +32,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
-        dataBinding true
+    dataBinding {
+        enabled = true
+    }
+    viewBinding {
+        enabled = true
     }
 }
 
