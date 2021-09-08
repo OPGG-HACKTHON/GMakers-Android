@@ -7,6 +7,7 @@ import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityMainBinding
 import com.example.gmakers_android.feature.main.adapter.ProfileViewPagerAdapter
 import com.example.gmakers_android.feature.main.viewmodel.MainViewModel
+import com.example.gmakers_android.feature.profile.ui.EditProfileActivity
 import com.example.gmakers_android.feature.search.ui.SearchActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -37,6 +38,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
         binding.searchLl.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+        binding.addIv.setOnClickListener {
+            val intent = Intent(this,EditProfileActivity::class.java)
             startActivity(intent)
         }
     }

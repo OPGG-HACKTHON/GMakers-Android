@@ -25,23 +25,24 @@ class LoginViewModel() : ViewModel() {
 
 
     fun doLogin() {
-            val loginCall =
-                loginInterface.doLogin(LoginRequest(userId.value!!, userPassword.value!!))
-            loginCall.enqueue(object : Callback<LoginResponse> {
-                override fun onResponse(
-                    call: Call<LoginResponse>,
-                    response: Response<LoginResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        _toastMessage.value = "로그인 성공"
-                        SharedPreferenceStorage.saveInfo(userId.value!!,"user_email")
-                        SharedPreferenceStorage.saveInfo(userPassword.value!!,"user_password")
-                    }
-                    SharedPreferenceStorage.saveInfo(response.body()!!.token,"access_token")
+        val loginCall =
+            loginInterface.doLogin(LoginRequest(userId.value!!, userPassword.value!!))
+        loginCall.enqueue(object : Callback<LoginResponse> {
+            override fun onResponse(
+                call: Call<LoginResponse>,
+                response: Response<LoginResponse>
+            ) {
+                if (response.isSuccessful) {
+                    _toastMessage.value = "로그인 성공"
+                    SharedPreferenceStorage.saveInfo(userId.value!!, "user_email")
+                    SharedPreferenceStorage.saveInfo(userPassword.value!!, "user_password")
                 }
-                override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                    _toastMessage.value = "로그인 실패"
-                }
-            })
+                    SharedPreferenceStorage.saveInfo(response.body()!!.token, "access_token")
+            }
+
+            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                _toastMessage.value = "로그인 실패"
+            }
+        })
     }
 }
