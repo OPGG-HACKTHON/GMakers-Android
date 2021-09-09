@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
 
-class EditProfileViewModel(private val sharedPreferenceStorage: SharedPreferenceStorage) :
+class EditProfileViewModel() :
     ViewModel() {
 
     val profileInterface = ApiProvider.getInstnace().create(EditProfileApi::class.java)
@@ -40,6 +40,7 @@ class EditProfileViewModel(private val sharedPreferenceStorage: SharedPreference
 
 
     fun editProfileAll() {
+        val sharedPreferenceStorage = SharedPreferenceStorage
         val accessToeken = sharedPreferenceStorage.getInfo("access_toekn")
         val request = EditProfileRequest(
             userName.value!!,
@@ -60,6 +61,6 @@ class EditProfileViewModel(private val sharedPreferenceStorage: SharedPreference
                 }
             })
         }
-        _comment.value = "빠진 곳이 없는지 확인 후에 다시 시도해주세요!😃"
+        _comment.value = "빠진 곳이 없는지 확인 후에 다시 시도해주세요!"
     }
 }
