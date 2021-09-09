@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.sign.SignApi
@@ -28,7 +29,7 @@ class LoginViewModel() : ViewModel() {
 
     fun doLogin() {
         val sharedPreferenceStorage = SharedPreferenceStorage
-        val accessToken = sharedPreferenceStorage.saveInfo("access_token",token)
+        val accessToken = sharedPreferenceStorage.saveInfo(MainApplication.context(), "access_token",token)
         val loginCall =
             loginInterface.doLogin(accessToken,LoginRequest(userId.value!!, userPassword.value!!))
         loginCall.enqueue(object : Callback<LoginResponse> {
@@ -38,10 +39,10 @@ class LoginViewModel() : ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     _toastMessage.value = "로그인 성공"
-                    SharedPreferenceStorage.saveInfo(userId.value!!, "user_email")
-                    SharedPreferenceStorage.saveInfo(userPassword.value!!, "user_password")
+                    SharedPreferenceStorage.saveInfo(MainApplication.context(), userId.value!!, "user_email")
+                    SharedPreferenceStorage.saveInfo(MainApplication.context(), userPassword.value!!, "user_password")
                 }
-                    SharedPreferenceStorage.saveInfo(token,"access_token")
+                    SharedPreferenceStorage.saveInfo(MainApplication.context(), token,"access_token")
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

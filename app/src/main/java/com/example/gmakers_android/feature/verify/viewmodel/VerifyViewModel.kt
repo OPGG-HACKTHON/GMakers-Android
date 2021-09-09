@@ -3,6 +3,7 @@ package com.example.gmakers_android.feature.verify.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.auth.AuthApi
@@ -31,7 +32,7 @@ class VerifyViewModel : ViewModel() {
     }
 
     fun getAuthProfileIconId(summonerId: String) {
-        val token = SharedPreferenceStorage.getInfo("access_token")
+        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         authInterface.getAuthIconId(token, AuthIconRequest(summonerId)).enqueue(object :Callback<AuthIconResponse> {
             override fun onResponse(
                 call: Call<AuthIconResponse>,
@@ -52,7 +53,7 @@ class VerifyViewModel : ViewModel() {
 
     fun getAuthConfirmed(summonerId: String) {
         _status.value = VerifyStatus.CONFIRMING
-        val token = SharedPreferenceStorage.getInfo("access_token")
+        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         authInterface.getAuthConfirm(token, AuthIconRequest(summonerId)).enqueue(object : Callback<AuthConfirmResponse> {
             override fun onResponse(
                 call: Call<AuthConfirmResponse>,

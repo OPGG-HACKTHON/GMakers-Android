@@ -3,6 +3,7 @@ package com.example.gmakers_android.feature.profile.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.editprofile.EditProfileApi
@@ -41,7 +42,7 @@ class EditProfileViewModel() :
 
     fun editProfileAll() {
         val sharedPreferenceStorage = SharedPreferenceStorage
-        val accessToeken = sharedPreferenceStorage.getInfo("access_toekn")
+        val accessToeken = sharedPreferenceStorage.getInfo(MainApplication.context(), "access_toekn")
         val request = EditProfileRequest(
             userName.value!!,
             userComment.value!!,

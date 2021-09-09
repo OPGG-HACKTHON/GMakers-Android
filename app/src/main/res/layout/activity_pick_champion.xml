@@ -95,11 +95,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/pickChampion_rc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/change_image_tv"
+            app:layout_constraintBottom_toTopOf="@id/finish_btn"
             tools:listitem="@layout/item_champion" />
 
 
