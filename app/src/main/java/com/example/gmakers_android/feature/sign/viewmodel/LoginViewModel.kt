@@ -1,5 +1,6 @@
 package com.example.gmakers_android.feature.sign.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginViewModel(private val sharedPreferenceStorage: SharedPreferenceStorage) : ViewModel() {
+class LoginViewModel() : ViewModel() {
 
     val loginInterface = ApiProvider.getInstnace().create(SignApi::class.java)
 
@@ -26,6 +27,7 @@ class LoginViewModel(private val sharedPreferenceStorage: SharedPreferenceStorag
     val token:String = ""
 
     fun doLogin() {
+        val sharedPreferenceStorage = SharedPreferenceStorage
         val accessToken = sharedPreferenceStorage.saveInfo("access_token",token)
         val loginCall =
             loginInterface.doLogin(accessToken,LoginRequest(userId.value!!, userPassword.value!!))
@@ -43,7 +45,7 @@ class LoginViewModel(private val sharedPreferenceStorage: SharedPreferenceStorag
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                _toastMessage.value = "로그인 실패"
+                _toastMessage.value = "로그인"
             }
         })
     }
