@@ -18,7 +18,7 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
         super.onCreate(savedInstanceState)
 
         val pickChampions = findViewById<RecyclerView>(R.id.pickChampion_rc)
-        val gridLayoutManager = GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false)
+        val gridLayoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
         pickChampions.layoutManager = gridLayoutManager
 
         val adapter = ChampionAdapter(ChampionList.championNameList.toList())

@@ -25,7 +25,7 @@ class ChampionAdapter (val champions : List<Champion>) :
     class ChampionViewHolder(val binding: ItemChampionBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(champion: Champion) {
 
-            val resourceId = binding.root.context.resources.getIdentifier(champion.name, "drawable", binding.root.context.packageName)
+            val resourceId = binding.root.context.resources.getIdentifier(champion.name.toLowerCase(), "drawable", binding.root.context.packageName)
             binding.championImg.setImageResource(resourceId)
         }
     }
