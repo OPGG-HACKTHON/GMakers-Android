@@ -7,6 +7,8 @@ import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityPickChampionBinding
 import com.example.gmakers_android.feature.profile.ChampionList
+import com.example.gmakers_android.feature.profile.HorizontalItemDecorator
+import com.example.gmakers_android.feature.profile.VerticalItemDecorator
 import com.example.gmakers_android.feature.profile.adapter.ChampionAdapter
 import com.example.gmakers_android.feature.profile.viewmodel.EditProfileViewModel
 
@@ -20,6 +22,8 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
         val pickChampions = findViewById<RecyclerView>(R.id.pickChampion_rc)
         val gridLayoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
         pickChampions.layoutManager = gridLayoutManager
+        binding.pickChampionRc.addItemDecoration(HorizontalItemDecorator(25))
+        binding.pickChampionRc.addItemDecoration(VerticalItemDecorator(20))
 
         val adapter = ChampionAdapter(ChampionList.championNameList.toList())
         pickChampions.adapter = adapter
