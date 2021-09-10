@@ -42,7 +42,7 @@ class LoginViewModel() : ViewModel() {
                     SharedPreferenceStorage.saveInfo(MainApplication.context(), userId.value!!, "user_email")
                     SharedPreferenceStorage.saveInfo(MainApplication.context(), userPassword.value!!, "user_password")
                 }
-                    SharedPreferenceStorage.saveInfo(MainApplication.context(), token,"access_token")
+                    SharedPreferenceStorage.saveInfo(MainApplication.context(), response.body()?.token ?: "","access_token")
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

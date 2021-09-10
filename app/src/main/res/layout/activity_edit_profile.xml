@@ -23,7 +23,6 @@
             android:layout_height="66dp"
             android:layout_marginStart="34dp"
             android:layout_marginEnd="34dp"
-            android:onClick="@{()->vm.editProfileAll()}"
             android:layout_marginBottom="16dp"
             android:background="@drawable/shape_purple_1"
             android:fontFamily="@font/notosans_bold"
@@ -71,18 +70,17 @@
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/finish_btn"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/finish_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView">
+                android:orientation="vertical">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout3"
@@ -195,6 +193,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
                     <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/keyword_cg"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -358,20 +357,20 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Spinner
-                        android:id="@+id/spinner2"
+                        android:id="@+id/spinner_position_01"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:entries="@array/linkArray"
+                        android:entries="@array/positionArray"
                         app:layout_constraintStart_toEndOf="@+id/first_position_tv"
                         app:layout_constraintTop_toBottomOf="@+id/position_tv" />
 
                     <Spinner
-                        android:id="@+id/spinner"
+                        android:id="@+id/spinner_position_02"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:entries="@array/linkArray"
+                        android:entries="@array/positionArray"
                         app:layout_constraintStart_toEndOf="@+id/second_position_tv"
                         app:layout_constraintTop_toBottomOf="@+id/position_tv" />
 
@@ -394,7 +393,7 @@
                         android:fontFamily="@font/notosans_bold"
                         android:text="@string/second_check"
                         android:textColor="@color/gray5"
-                        app:layout_constraintStart_toEndOf="@+id/spinner2"
+                        app:layout_constraintStart_toEndOf="@+id/spinner_position_01"
                         app:layout_constraintTop_toBottomOf="@+id/position_tv" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -405,7 +404,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+                    android:layout_marginBottom="60dp">
 
                     <TextView
                         android:id="@+id/lank_tv"
@@ -419,12 +419,11 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <Spinner
-                        android:id="@+id/spinner3"
+                        android:id="@+id/spinner_rank"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="34dp"
                         android:entries="@array/rankArray"
-                        android:tooltipText="@{vm.userRank}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/lank_tv" />
 
@@ -468,14 +467,14 @@
             app:layout_constraintTop_toBottomOf="@+id/intro_title"
             app:srcCompat="@drawable/edit_grape" />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/comment_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{vm.comment}"
             app:layout_constraintBottom_toTopOf="@+id/finish_btn"
             app:layout_constraintEnd_toStartOf="@+id/guideline6"
-            app:layout_constraintStart_toStartOf="@+id/guideline5" />
+            app:layout_constraintStart_toStartOf="@+id/guideline5" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

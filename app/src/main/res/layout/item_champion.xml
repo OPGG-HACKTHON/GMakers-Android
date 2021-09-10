@@ -18,6 +18,7 @@
                 android:layout_weight="1"
                 android:scaleType="fitCenter"
                 tools:srcCompat="@tools:sample/avatars" />
+
         </LinearLayout>
     </LinearLayout>
 </layout>
