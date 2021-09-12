@@ -3,6 +3,7 @@ package com.example.gmakers_android.feature.detail.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.model.ProfileDetail
@@ -18,7 +19,7 @@ class ProfileDetailViewModel : ViewModel() {
     val profile: LiveData<ProfileDetail> = _profile
 
     fun getDetailProfile(profileId: Int) {
-        val token = SharedPreferenceStorage.getInfo("access_token")
+        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         profileInterface.getDetailProfile(token, profileId).enqueue(object : Callback<ProfileDetail> {
             override fun onResponse(call: Call<ProfileDetail>, response: Response<ProfileDetail>) {
                 if (response.isSuccessful) {
