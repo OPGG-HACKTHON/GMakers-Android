@@ -52,7 +52,9 @@ class PickChampionViewModel() :
         )
         profileInterface.editProfile(accessToeken, request).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                _comment.value = "프로필 생성 성공"
+                if (response.isSuccessful) {
+                    _comment.value = "프로필 생성 성공"
+                }
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {

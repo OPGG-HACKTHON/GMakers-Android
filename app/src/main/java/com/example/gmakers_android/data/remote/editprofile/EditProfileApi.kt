@@ -8,6 +8,6 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface EditProfileApi {
-    @POST("/profiles")
+    @POST("/api/profiles")
     fun editProfile(@Header("Authorization") token: String, @Body request : EditProfileRequest): Call<Unit>
 }
