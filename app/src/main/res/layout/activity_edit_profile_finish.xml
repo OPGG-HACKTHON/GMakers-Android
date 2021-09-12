@@ -127,7 +127,7 @@
             app:layout_constraintGuide_begin="680dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/parent_layout"
+            android:id="@+id/profile_view"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginStart="34dp"
