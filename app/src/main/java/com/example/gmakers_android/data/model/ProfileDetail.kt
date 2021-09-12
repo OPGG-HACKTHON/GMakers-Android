@@ -21,9 +21,9 @@ data class ProfileDetail(
     val loseGames: Int,
     val winGames: Int,
     val winRate: Int,
-    val discription: String?,
+    val description: String?,
     val preferChampions: List<PreferChampion>,
     val preferLines: List<PreferLine>,
-    val preferKeyword: List<PreferKeyword>?,
+    val preferKeywords: List<String>?,
     val certified: Boolean
 ): Parcelable

@@ -7,9 +7,9 @@ import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityProfileDetailBinding
 import com.example.gmakers_android.feature.detail.viewmodel.ProfileDetailViewModel
+import com.example.gmakers_android.feature.profile.ChampionList
 import com.example.gmakers_android.feature.verify.ui.VerifyActivity
 import com.example.gmakers_android.util.ImageMappingUtil
-import com.google.android.material.chip.Chip
 
 class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layout.activity_profile_detail) {
 
@@ -83,11 +83,57 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
                     1 -> binding.lane02Iv.setImageResource(ImageMappingUtil.getPositionImageResource(preferLine.line))
                 }
             }
-            binding.descTv.text = it.discription
-            it.preferKeyword?.forEach {
-                val chip = Chip(this)
-                chip.text = it.keyword
-                binding.keywordCg.addView(chip)
+            binding.descTv.text = it.description
+            it.preferKeywords?.forEachIndexed { index, s ->
+                when (index) {
+                    0 -> {
+                        binding.chip1.text = s
+                        binding.chip1.visibility = View.VISIBLE
+                    }
+                    1 -> {
+                        binding.chip2.text = s
+                        binding.chip2.visibility = View.VISIBLE
+                    }
+                    2 -> {
+                        binding.chip3.text = s
+                        binding.chip3.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+            it.preferChampions.forEachIndexed { index, preferChampion ->
+
+                val champion = ChampionList.championNameList.find {
+                    it.name_kr == preferChampion.championName
+                }
+                val resourceId = binding.root.context.resources.getIdentifier(champion?.name?.toLowerCase(), "drawable", binding.root.context.packageName)
+
+                when (index) {
+                    0 -> {
+                        binding.championImg01.setImageResource(resourceId)
+                        binding.championTv01.text = preferChampion.championName
+                        binding.championPointTv01.text = preferChampion.championPoints
+                        binding.championImgCl01.visibility = View.VISIBLE
+                        binding.championTv01.visibility = View.VISIBLE
+                        binding.championPointTv01.visibility = View.VISIBLE
+                    }
+                    1 -> {
+                        binding.championImg02.setImageResource(resourceId)
+                        binding.championTv02.text = preferChampion.championName
+                        binding.championPointTv02.text = preferChampion.championPoints
+                        binding.championImgCl02.visibility = View.VISIBLE
+                        binding.championTv02.visibility = View.VISIBLE
+                        binding.championPointTv02.visibility = View.VISIBLE
+                    }
+                    2 -> {
+                        binding.championImg03.setImageResource(resourceId)
+                        binding.championTv03.text = preferChampion.championName
+                        binding.championPointTv03.text = preferChampion.championPoints
+                        binding.championImgCl03.visibility = View.VISIBLE
+                        binding.championTv03.visibility = View.VISIBLE
+                        binding.championPointTv03.visibility = View.VISIBLE
+                    }
+                }
             }
         })
     }
