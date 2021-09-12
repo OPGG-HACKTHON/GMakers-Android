@@ -1,5 +1,6 @@
 package com.example.gmakers_android.feature.profile.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -66,6 +67,9 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
                 championList.add(newItem)
             }
             vm.preferChampions.value = championList
+
+            val intent = Intent(this,EditProfileFinishActivity::class.java)
+            startActivity(intent)
 
             vm.editProfileAll()
         }
