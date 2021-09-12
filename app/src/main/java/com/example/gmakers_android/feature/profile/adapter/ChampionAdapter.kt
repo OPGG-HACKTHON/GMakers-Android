@@ -3,33 +3,54 @@ package com.example.gmakers_android.feature.profile.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gmakers_android.feature.profile.model.ChoiceChampion
+import com.example.gmakers_android.databinding.ItemChampionBinding
+import com.example.gmakers_android.feature.profile.model.Champion
 
-class ChampionAdapter(var model : ArrayList<ChoiceChampion>):
-    RecyclerView.Adapter<ChampionAdapter.IntroChampionViewHolder>() {
+class ChampionAdapter (val champions : List<Champion>) :
+    RecyclerView.Adapter<ChampionAdapter.ChampionViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IntroChampionViewHolder {
-        val view = ItemChampionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return IntroChampionViewHolder(view)
-    }
-    override fun getItemCount() = model.size
+    val selectedItems = ArrayList<Int>()
 
-
-    fun setItem(champions: List<ChoiceChampion>) {
-        this.model = champions as ArrayList<ChoiceChampion>
-        notifyDataSetChanged()
+    override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ChampionViewHolder {
+        val view = ItemChampionBinding.inflate(LayoutInflater.from(p0.context), p0, false)
+        return ChampionViewHolder(view)
     }
 
-    override fun onBindViewHolder(p0: IntroChampionViewHolder, p1: Int) = p0.bind(model[p1], p1)
+    override fun getItemCount() = champions.size
 
-    class IntroChampionViewHolder(itemView: ItemChampionBinding) :
-        RecyclerView.ViewHolder(itemView.root) {
-        val image = itemView.
-        fun bind(model: ChoiceChampion, position: Int) {
-            image.
+    override fun onBindViewHolder(holder: ChampionViewHolder, position: Int) {
+        holder.bind(champions[position])
+    }
 
+    inner class ChampionViewHolder(val binding: ItemChampionBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(champion: Champion) {
+
+            val resourceId = binding.root.context.resources.getIdentifier(champion.name.toLowerCase(), "drawable", binding.root.context.packageName)
+            binding.championImg.setImageResource(resourceId)
+
+            selectedItems.find {
+                it == adapterPosition
+            }.let {
+                if (it == null) {
+                    binding.championImg.alpha = 1.0f
+                } else {
+                    binding.championImg.alpha = 0.3f
+                }
             }
 
+            binding.championImg.setOnClickListener {
+                selectedItems.find {
+                    it == adapterPosition
+                }.let {
+                    if (it == null) {
+                        if (selectedItems.size >= 3) return@setOnClickListener
+                        selectedItems.add(adapterPosition)
+                    } else {
+                        selectedItems.remove(it)
+                    }
+                    notifyDataSetChanged()
+                }
+            }
         }
     }
 }
