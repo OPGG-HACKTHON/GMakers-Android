@@ -13,30 +13,17 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EditProfileViewModel() : ViewModel() {
-    val profileInterface = ApiProvider.getInstnace().create(ProfileApi::class.java)
+class EditProfileViewModel() :
+    ViewModel() {
 
-    private val _profile = MutableLiveData<ProfileDetail>()
-    val profile: LiveData<ProfileDetail> = _profile
+    val userName = MutableLiveData<String>()
+    val userComment = MutableLiveData<String>()
+    val keywords = MutableLiveData<ArrayList<String>>()
+    val preferLines = ArrayList<LineRequest>()
+    var userRank = String()
 
-    fun getDetailProfile(profileId: Int) {
-        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
-        profileInterface.getDetailProfile(token, profileId)
-            .enqueue(object : Callback<ProfileDetail> {
-                override fun onResponse(
-                    call: Call<ProfileDetail>,
-                    response: Response<ProfileDetail>
-                ) {
-                    if (response.isSuccessful) {
-                        response.body()?.let {
-                            _profile.value = it
-                        }
-                    }
-                }
 
-                override fun onFailure(call: Call<ProfileDetail>, t: Throwable) {
-                    t.printStackTrace()
-                }
-            })
+    fun setKeywords(list: ArrayList<String>) {
+        keywords.value = list
     }
 }
