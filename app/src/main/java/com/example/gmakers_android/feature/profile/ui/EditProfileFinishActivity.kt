@@ -40,20 +40,9 @@ class EditProfileFinishActivity :
 
     private fun initObserver() {
         vm.profile.observe(this, {
-            // profile card
             binding.tierTv
             binding.levelTv.text = it.level.toString()
             binding.summonerNameTv.text = it.summonerName
-//            binding.tierIv.setImageDrawable() =
-//                ImageMappingUtil.getEmblemImageResource(it.tier ?: "NONE")
-//            it.preferLines.forEachIndexed { index, preferLine ->
-//                when (index) {
-//                    0 -> binding.profileView.lane01 =
-//                        ImageMappingUtil.getPositionImageResource(preferLine.line)
-//                    1 -> binding.profileView.lane02 =
-//                        ImageMappingUtil.getPositionImageResource(preferLine.line)
-//                }
-//            }
         })
     }
 }

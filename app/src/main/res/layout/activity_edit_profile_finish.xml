@@ -186,6 +186,7 @@
                 android:layout_height="0dp"
                 android:layout_marginLeft="115dp"
                 android:layout_marginTop="42dp"
+                android:background="@drawable/img_emblem_challenger"
                 android:layout_marginRight="115dp"
                 android:layout_marginBottom="42dp"
                 app:layout_constraintBottom_toBottomOf="parent"
