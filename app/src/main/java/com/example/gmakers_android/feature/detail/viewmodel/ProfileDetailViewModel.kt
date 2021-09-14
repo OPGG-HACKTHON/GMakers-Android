@@ -18,6 +18,9 @@ class ProfileDetailViewModel : ViewModel() {
     private val _profile = MutableLiveData<ProfileDetail>()
     val profile: LiveData<ProfileDetail> = _profile
 
+    private val _isDeleted = MutableLiveData<Boolean>()
+    val isDeleted: LiveData<Boolean> = _isDeleted
+
     fun getDetailProfile(profileId: Int) {
         val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         profileInterface.getDetailProfile(token, profileId).enqueue(object : Callback<ProfileDetail> {
@@ -31,6 +34,24 @@ class ProfileDetailViewModel : ViewModel() {
 
             override fun onFailure(call: Call<ProfileDetail>, t: Throwable) {
                 t.printStackTrace()
+            }
+        })
+    }
+
+    fun deleteProfile(profileId: Int) {
+        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
+        profileInterface.deleteProfile(token, profileId).enqueue(object : Callback<String> {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                if (response.isSuccessful) {
+                    _isDeleted.value = true
+                    return
+                }
+                _isDeleted.value = false
+            }
+
+            override fun onFailure(call: Call<String>, t: Throwable) {
+                t.printStackTrace()
+                _isDeleted.value = false
             }
         })
     }

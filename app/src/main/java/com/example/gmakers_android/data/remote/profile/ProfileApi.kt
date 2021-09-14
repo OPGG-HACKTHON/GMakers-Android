@@ -3,10 +3,7 @@ package com.example.gmakers_android.data.remote.profile
 import com.example.gmakers_android.data.model.Profile
 import com.example.gmakers_android.data.model.ProfileDetail
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ProfileApi {
     @GET("api/profiles")
@@ -25,4 +22,10 @@ interface ProfileApi {
         @Header("Authorization") token: String,
         @Path("profileId") profileId: Int
     ): Call<ProfileDetail>
+
+    @DELETE("api/profiles/{profileId}")
+    fun deleteProfile(
+        @Header("Authorization") token: String,
+        @Path("profileId") profileId: Int
+    ): Call<String>
 }

@@ -30,7 +30,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"/>
 
-            <ImageView
+            <!--<ImageView
                 android:id="@+id/modify_iv"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
@@ -45,6 +45,17 @@
                 android:layout_gravity="center_vertical"
                 android:scaleType="centerInside"
                 android:src="@drawable/bookmark_border_grey0_24dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="12dp"/>-->
+
+            <ImageView
+                android:id="@+id/delete_iv"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_baseline_delete_24"
+                app:tint="@color/gray0"
                 android:layout_marginLeft="8dp"
                 android:layout_marginRight="12dp"/>
 

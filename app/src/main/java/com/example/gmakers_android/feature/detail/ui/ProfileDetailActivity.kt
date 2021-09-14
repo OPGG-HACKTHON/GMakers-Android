@@ -1,8 +1,11 @@
 package com.example.gmakers_android.feature.detail.ui
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityProfileDetailBinding
@@ -35,9 +38,22 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
             }
         }
 
-        val profileOwner = intent.getBooleanExtra(INTENT_KEY_PROFILE_OWNER, true)
+        /*val profileOwner = intent.getBooleanExtra(INTENT_KEY_PROFILE_OWNER, true)
         if (!profileOwner) {
             binding.modifyIv.visibility = View.GONE
+        }*/
+
+        binding.deleteIv.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("프로필 삭제")
+                .setMessage("프로필을 삭제하겠습니까?")
+                .setNegativeButton("아니오") { _, _ -> }
+                .setPositiveButton("예") { _, _ ->
+                    val profileId = intent.getIntExtra(INTENT_KEY_PROFILE_ID, -1)
+                    if (profileId == -1) return@setPositiveButton
+                    vm.deleteProfile(profileId)
+                }
+                .show()
         }
     }
 
@@ -141,5 +157,14 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
                 }
             }
         })
+
+        vm.isDeleted.observe(this) {
+            if (it) {
+                Toast.makeText(this, "프로필 삭제 성공", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "프로필 삭제 실패", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }
