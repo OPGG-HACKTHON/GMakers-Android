@@ -11,8 +11,6 @@ import com.example.gmakers_android.feature.sign.viewmodel.LoginViewModel
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
-    override val vm: LoginViewModel = LoginViewModel()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.lifecycleOwner = this
@@ -20,6 +18,8 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
         goRegister()
 
     }
+
+    override val vm: LoginViewModel = LoginViewModel()
 
     override fun onStart() {
         super.onStart()
@@ -33,8 +33,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
             toastMessage.observe(this@LoginActivity, { message ->
                 Toast.makeText(this@LoginActivity, message, Toast.LENGTH_SHORT).show()
 
-                // login 성공하면 main activity로 이동
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val intent = Intent(this@LoginActivity,  MainActivity::class.java)
                 startActivity(intent)
             })
         }

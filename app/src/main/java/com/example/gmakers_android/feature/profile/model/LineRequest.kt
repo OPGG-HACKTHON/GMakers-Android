@@ -1,5 +1,7 @@
 package com.example.gmakers_android.feature.profile.model
 
-import androidx.annotation.Nullable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class LineRequest(val priority: Int, val line: String,val nullable: Nullable)
+@Parcelize
+data class LineRequest(val priority: Int, var line: String,val nullable: Boolean): Parcelable

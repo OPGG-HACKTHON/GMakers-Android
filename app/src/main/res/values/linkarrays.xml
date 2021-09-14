@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="linkArray">
+    <string-array name="keywordArray">
         <item>@string/keyword1</item>
         <item>@string/keyword2</item>
         <item>@string/keyword3</item>
@@ -12,6 +12,14 @@
         <item>@string/keyword9</item>
         <item>@string/keyword10</item>
         <item>@string/keyword11</item>
+    </string-array>
+
+    <string-array name="positionArray">
+        <item>@string/position1</item>
+        <item>@string/position2</item>
+        <item>@string/position3</item>
+        <item>@string/position4</item>
+        <item>@string/position5</item>
     </string-array>
 
 </resources>

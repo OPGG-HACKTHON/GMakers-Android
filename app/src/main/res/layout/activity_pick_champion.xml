@@ -6,7 +6,7 @@
     <data>
         <variable
             name="vm"
-            type="com.example.gmakers_android.feature.profile.viewmodel.EditProfileViewModel"
+            type="com.example.gmakers_android.feature.profile.viewmodel.PickChampionViewModel"
             />
     </data>
 
@@ -91,6 +91,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/pickChampion_rc"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/change_image_tv"
+            app:layout_constraintBottom_toTopOf="@id/finish_btn"
+            tools:listitem="@layout/item_champion" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

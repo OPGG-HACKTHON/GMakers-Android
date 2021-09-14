@@ -3,6 +3,7 @@ package com.example.gmakers_android.feature.search.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.model.Profile
@@ -30,7 +31,7 @@ class SearchViewModel : ViewModel() {
 
     fun getProfile(summonerName: String) {
         _status.value = SearchStatus.INIT
-        val token = SharedPreferenceStorage.getInfo("access_token")
+        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         profileInterface.getProfiles(token, summonerName).enqueue(object : Callback<List<Profile>> {
             override fun onResponse(
                 call: Call<List<Profile>>,

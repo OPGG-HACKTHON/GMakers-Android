@@ -63,6 +63,11 @@
     <string name="keyword9">유틸형</string>
     <string name="keyword10">전투민족</string>
     <string name="keyword11">한타지향</string>
+    <string name="position1">TOP</string>
+    <string name="position2">JUNGLE</string>
+    <string name="position3">MID</string>
+    <string name="position4">AD</string>
+    <string name="position5">SUP</string>
     <string name="RANKED_SOLO">RANKED_SOLO</string>
     <string name="RANKED_FLEX">RANKED_FLEX</string>
     <string name="NONE">NONE</string>
