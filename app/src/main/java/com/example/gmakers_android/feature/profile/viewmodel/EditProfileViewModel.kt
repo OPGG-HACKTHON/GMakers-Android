@@ -7,11 +7,8 @@ import com.example.gmakers_android.feature.profile.model.LineRequest
 class EditProfileViewModel() :
     ViewModel() {
 
-    val userName = MutableLiveData<String>()
-    val userComment = MutableLiveData<String>()
     val keywords = MutableLiveData<ArrayList<String>>()
     val preferLines = ArrayList<LineRequest>()
-
     var userRank = String()
 
 

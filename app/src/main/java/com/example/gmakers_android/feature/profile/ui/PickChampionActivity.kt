@@ -1,5 +1,6 @@
 package com.example.gmakers_android.feature.profile.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -68,6 +69,26 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
             vm.preferChampions.value = championList
 
             vm.editProfileAll()
+        }
+
+        vm.processStatus.observe(this) {
+            when (it) {
+                PickChampionViewModel.ProcessStatus.IsUpdating -> {
+                    binding.finishBtn.isEnabled = false
+                    binding.finishBtn.text = "생성중"
+                }
+                PickChampionViewModel.ProcessStatus.IsSuccess -> {
+                    binding.finishBtn.isEnabled = true
+                    binding.finishBtn.text = "다음"
+                    val intent = Intent(this, EditProfileFinishActivity::class.java)
+                    intent.putExtra(EditProfileFinishActivity.KEY_USER_NAME, vm.userName.value)
+                    startActivity(intent)
+                }
+                PickChampionViewModel.ProcessStatus.IsFail -> {
+                    binding.finishBtn.isEnabled = true
+                    binding.finishBtn.text = "다음"
+                }
+            }
         }
     }
 }
