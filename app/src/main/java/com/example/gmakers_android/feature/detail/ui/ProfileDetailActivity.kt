@@ -38,10 +38,11 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
             }
         }
 
-        /*val profileOwner = intent.getBooleanExtra(INTENT_KEY_PROFILE_OWNER, true)
+        val profileOwner = intent.getBooleanExtra(INTENT_KEY_PROFILE_OWNER, true)
         if (!profileOwner) {
-            binding.modifyIv.visibility = View.GONE
-        }*/
+            //binding.modifyIv.visibility = View.GONE
+            binding.deleteIv.visibility = View.GONE
+        }
 
         binding.deleteIv.setOnClickListener {
             AlertDialog.Builder(this)
