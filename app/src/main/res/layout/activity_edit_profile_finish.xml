@@ -115,7 +115,8 @@
             android:text="@string/start_certification"
             app:layout_constraintEnd_toStartOf="@+id/guideline11"
             app:layout_constraintStart_toStartOf="@+id/guideline10"
-            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+            app:layout_constraintTop_toTopOf="@+id/guideline12"
+            android:enabled="false"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline11"

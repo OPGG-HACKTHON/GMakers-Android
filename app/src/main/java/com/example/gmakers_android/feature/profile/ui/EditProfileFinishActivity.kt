@@ -1,11 +1,14 @@
 package com.example.gmakers_android.feature.profile.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityEditProfileFinishBinding
+import com.example.gmakers_android.feature.main.ui.MainActivity
 import com.example.gmakers_android.feature.profile.viewmodel.EditProfileFinishViewModel
+import com.example.gmakers_android.feature.verify.ui.VerifyActivity
 import com.example.gmakers_android.util.ImageMappingUtil
 
 class EditProfileFinishActivity :
@@ -26,6 +29,28 @@ class EditProfileFinishActivity :
         userName?.let {
             vm.getProfiles(userName)
         }
+
+        binding.backImg.setOnClickListener {
+            startMainActivity()
+        }
+
+        binding.nextBtn.setOnClickListener {
+            startMainActivity()
+        }
+
+        binding.certificationBtn.setOnClickListener {
+            vm.profileDetail.value?.let {
+                val intent = Intent(this, VerifyActivity::class.java)
+                intent.putExtra(VerifyActivity.INTENT_KEY_PROFILE, it)
+                startActivity(intent)
+            }
+        }
+    }
+
+    private fun startMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     override fun onStart() {
@@ -48,6 +73,12 @@ class EditProfileFinishActivity :
             }
 
             binding.profileCardView.verified = profile.certified
+
+            vm.getDetailProfile(profile.profileId)
         })
+
+        vm.profileDetail.observe(this) {
+            binding.certificationBtn.isEnabled = true
+        }
     }
 }

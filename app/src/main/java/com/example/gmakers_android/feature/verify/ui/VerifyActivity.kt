@@ -1,11 +1,13 @@
 package com.example.gmakers_android.feature.verify.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.data.model.ProfileDetail
 import com.example.gmakers_android.databinding.ActivityVerifyBinding
+import com.example.gmakers_android.feature.main.ui.MainActivity
 import com.example.gmakers_android.feature.verify.viewmodel.VerifyViewModel
 import com.example.gmakers_android.util.ImageMappingUtil
 
@@ -41,7 +43,9 @@ class VerifyActivity : BaseActivity<ActivityVerifyBinding>(R.layout.activity_ver
         }
 
         binding.okTv.setOnClickListener {
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
         }
 
         // first init

@@ -7,6 +7,7 @@ import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.model.Profile
+import com.example.gmakers_android.data.model.ProfileDetail
 import com.example.gmakers_android.data.remote.profile.ProfileApi
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,6 +18,9 @@ class EditProfileFinishViewModel: ViewModel() {
 
     private val _profile = MutableLiveData<Profile>()
     val profile: LiveData<Profile> = _profile
+
+    private val _profileDetail = MutableLiveData<ProfileDetail>()
+    val profileDetail: LiveData<ProfileDetail> = _profileDetail
 
     fun getProfiles(summonerName: String) {
         val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
@@ -38,6 +42,23 @@ class EditProfileFinishViewModel: ViewModel() {
             }
 
             override fun onFailure(call: Call<List<Profile>>, t: Throwable) {
+                t.printStackTrace()
+            }
+        })
+    }
+
+    fun getDetailProfile(profileId: Int) {
+        val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
+        profileInterface.getDetailProfile(token, profileId).enqueue(object : Callback<ProfileDetail> {
+            override fun onResponse(call: Call<ProfileDetail>, response: Response<ProfileDetail>) {
+                if (response.isSuccessful) {
+                    response.body()?.let {
+                        _profileDetail.value = it
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ProfileDetail>, t: Throwable) {
                 t.printStackTrace()
             }
         })
