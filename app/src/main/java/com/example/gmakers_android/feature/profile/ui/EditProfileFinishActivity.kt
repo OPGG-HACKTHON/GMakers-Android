@@ -1,30 +1,20 @@
 package com.example.gmakers_android.feature.profile.ui
 
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityEditProfileFinishBinding
-import com.example.gmakers_android.feature.detail.ui.ProfileDetailActivity
-import com.example.gmakers_android.feature.detail.viewmodel.ProfileDetailViewModel
-import com.example.gmakers_android.feature.profile.model.LineRequest
-import com.example.gmakers_android.feature.profile.viewmodel.EditProfileViewModel
-import com.example.gmakers_android.feature.profile.viewmodel.PickChampionViewModel
-import com.example.gmakers_android.feature.verify.ui.VerifyActivity
+import com.example.gmakers_android.feature.profile.viewmodel.EditProfileFinishViewModel
 import com.example.gmakers_android.util.ImageMappingUtil
-import com.google.android.material.chip.Chip
 
 class EditProfileFinishActivity :
     BaseActivity<ActivityEditProfileFinishBinding>(R.layout.activity_edit_profile_finish) {
 
-    override val vm: ProfileDetailViewModel = ProfileDetailViewModel()
+    override val vm: EditProfileFinishViewModel = EditProfileFinishViewModel()
 
     companion object {
         const val KEY_USER_NAME = "key_user_name"
-        const val KEY_LINE = "key_line"
-        const val KEY_RANK = "key_rank"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +22,10 @@ class EditProfileFinishActivity :
 
         initObserver()
 
+        val userName = intent.getStringExtra(KEY_USER_NAME)
+        userName?.let {
+            vm.getProfiles(userName)
+        }
     }
 
     override fun onStart() {
@@ -39,10 +33,21 @@ class EditProfileFinishActivity :
     }
 
     private fun initObserver() {
-        vm.profile.observe(this, {
-            binding.tierTv
-            binding.levelTv.text = it.level.toString()
-            binding.summonerNameTv.text = it.summonerName
+        vm.profile.observe(this, { profile ->
+            binding.profileCardView.tier = profile.tier ?: "NONE"
+            binding.profileCardView.level = profile.level.toString()
+            binding.profileCardView.summonerName = profile.summonerName
+
+            binding.profileCardView.tierEmblem = ImageMappingUtil.getEmblemImageResource(profile.tier ?: "NONE")
+
+            profile.preferLines.forEachIndexed { index, preferLine ->
+                when (index) {
+                    0 -> binding.profileCardView.lane01 = ImageMappingUtil.getPositionImageResource(preferLine.line)
+                    1 -> binding.profileCardView.lane02 = ImageMappingUtil.getPositionImageResource(preferLine.line)
+                }
+            }
+
+            binding.profileCardView.verified = profile.certified
         })
     }
 }

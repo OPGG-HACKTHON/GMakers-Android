@@ -38,8 +38,12 @@ class PickChampionViewModel() :
     private val _comment = MutableLiveData<String>()
     val comment: LiveData<String> get() = _comment
 
+    private val _processStatus = MutableLiveData<ProcessStatus>()
+    val processStatus: LiveData<ProcessStatus> get() = _processStatus
 
     fun editProfileAll() {
+        _processStatus.value = ProcessStatus.IsUpdating
+
         val sharedPreferenceStorage = SharedPreferenceStorage
         val accessToeken = sharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         val request = EditProfileRequest(
@@ -54,11 +58,15 @@ class PickChampionViewModel() :
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful) {
                     _comment.value = "프로필 생성 성공"
+                    _processStatus.value = ProcessStatus.IsSuccess
+                } else {
+                    _processStatus.value = ProcessStatus.IsFail
                 }
             }
 
             override fun onFailure(call: Call<Unit>, t: Throwable) {
                 _comment.value = "프로필을 다시 입력해주세요"
+                _processStatus.value = ProcessStatus.IsFail
             }
         })
         _comment.value = "빠진 곳이 없는지 확인 후에 다시 시도해주세요!"
@@ -66,5 +74,11 @@ class PickChampionViewModel() :
 
     fun setKeywords(list: List<String>) {
         keywords.value = list
+    }
+
+    sealed class ProcessStatus {
+        object IsUpdating: ProcessStatus()
+        object IsSuccess: ProcessStatus()
+        object IsFail: ProcessStatus()
     }
 }

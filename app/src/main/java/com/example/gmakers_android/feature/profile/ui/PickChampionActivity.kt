@@ -68,10 +68,27 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
             }
             vm.preferChampions.value = championList
 
-            val intent = Intent(this,EditProfileFinishActivity::class.java)
-            startActivity(intent)
-
             vm.editProfileAll()
+        }
+
+        vm.processStatus.observe(this) {
+            when (it) {
+                PickChampionViewModel.ProcessStatus.IsUpdating -> {
+                    binding.finishBtn.isEnabled = false
+                    binding.finishBtn.text = "생성중"
+                }
+                PickChampionViewModel.ProcessStatus.IsSuccess -> {
+                    binding.finishBtn.isEnabled = true
+                    binding.finishBtn.text = "다음"
+                    val intent = Intent(this, EditProfileFinishActivity::class.java)
+                    intent.putExtra(EditProfileFinishActivity.KEY_USER_NAME, vm.userName.value)
+                    startActivity(intent)
+                }
+                PickChampionViewModel.ProcessStatus.IsFail -> {
+                    binding.finishBtn.isEnabled = true
+                    binding.finishBtn.text = "다음"
+                }
+            }
         }
     }
 }

@@ -50,15 +50,11 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding>(R.layout.ac
                 vm.setKeywords(chipList)
 
                 val intent = Intent(this, PickChampionActivity::class.java)
-                intent.putExtra(PickChampionActivity.KEY_USER_NAME, vm.userName.value)
-                intent.putExtra(PickChampionActivity.KEY_USER_COMMENT, vm.userComment.value)
+                intent.putExtra(PickChampionActivity.KEY_USER_NAME, binding.championEt.text.toString())
+                intent.putExtra(PickChampionActivity.KEY_USER_COMMENT, binding.simpleEt.text.toString())
                 intent.putStringArrayListExtra(PickChampionActivity.KEY_KEYWORDS, vm.keywords.value)
                 intent.putParcelableArrayListExtra(PickChampionActivity.KEY_LINE, vm.preferLines)
                 intent.putExtra(PickChampionActivity.KEY_RANK, vm.userRank)
-
-                intent.putExtra(EditProfileFinishActivity.KEY_USER_NAME, vm.userName.value)
-                intent.putParcelableArrayListExtra(EditProfileFinishActivity.KEY_LINE, vm.preferLines)
-                intent.putExtra(EditProfileFinishActivity.KEY_RANK, vm.userRank)
 
                 startActivity(intent)
             }

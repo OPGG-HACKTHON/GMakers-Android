@@ -106,7 +106,7 @@
 
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/campion_et"
+                            android:id="@+id/champion_et"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawablePadding="10dp"
