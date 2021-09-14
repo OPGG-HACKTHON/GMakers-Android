@@ -75,4 +75,5 @@
     <string name="next">다음</string>
     <string name="choice_champio">선호하는 챔피언을</string>
     <string name="choice_all">선택해 주세요</string>
+    <string name="be_readying">준비중입니다</string>
 </resources>

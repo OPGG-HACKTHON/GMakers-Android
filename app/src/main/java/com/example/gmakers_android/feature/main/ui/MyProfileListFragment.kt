@@ -29,6 +29,10 @@ class MyProfileListFragment : BaseFragment<FragmentMyProfileListBinding>(R.layou
             }
             binding.profileRv.adapter = adapter
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         vm.getProfiles()
     }
