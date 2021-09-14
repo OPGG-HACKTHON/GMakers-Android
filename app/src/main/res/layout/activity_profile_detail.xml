@@ -220,8 +220,7 @@
                     app:layout_constraintTop_toBottomOf="@id/info_divider"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/champion_img_cl_02"
-                    android:layout_marginTop="100dp"
-                    android:background="@drawable/champion_mastery_level_7">
+                    android:layout_marginTop="100dp">
 
                     <ImageView
                         android:id="@+id/champion_img_01"

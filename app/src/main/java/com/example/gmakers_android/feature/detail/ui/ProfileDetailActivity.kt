@@ -108,8 +108,11 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
                 }
                 val resourceId = binding.root.context.resources.getIdentifier(champion?.name?.toLowerCase(), "drawable", binding.root.context.packageName)
 
+                val levelResourceId = binding.root.context.resources.getIdentifier("champion_mastery_level_${preferChampion.championLevel}", "drawable", binding.root.context.packageName)
+
                 when (index) {
                     0 -> {
+                        binding.championImgCl01.setBackgroundResource(levelResourceId)
                         binding.championImg01.setImageResource(resourceId)
                         binding.championTv01.text = preferChampion.championName
                         binding.championPointTv01.text = preferChampion.championPoints
@@ -118,6 +121,7 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
                         binding.championPointTv01.visibility = View.VISIBLE
                     }
                     1 -> {
+                        binding.championImgCl02.setBackgroundResource(levelResourceId)
                         binding.championImg02.setImageResource(resourceId)
                         binding.championTv02.text = preferChampion.championName
                         binding.championPointTv02.text = preferChampion.championPoints
@@ -126,6 +130,7 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
                         binding.championPointTv02.visibility = View.VISIBLE
                     }
                     2 -> {
+                        binding.championImgCl03.setBackgroundResource(levelResourceId)
                         binding.championImg03.setImageResource(resourceId)
                         binding.championTv03.text = preferChampion.championName
                         binding.championPointTv03.text = preferChampion.championPoints
