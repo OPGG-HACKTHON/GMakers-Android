@@ -4,15 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityEditProfileBinding
 import com.example.gmakers_android.feature.profile.model.LineRequest
 import com.example.gmakers_android.feature.profile.viewmodel.EditProfileViewModel
-import com.example.gmakers_android.feature.profile.viewmodel.PickChampionViewModel
 import com.google.android.material.chip.Chip
 
 class EditProfileActivity : BaseActivity<ActivityEditProfileBinding>(R.layout.activity_edit_profile) {
@@ -51,7 +48,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding>(R.layout.ac
             vm.setKeywords(chipList)
 
             // valid data
-            validData().let {
+            checkValidation().let {
                 if (it.isNotBlank()) {
                     Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
@@ -157,7 +154,7 @@ class EditProfileActivity : BaseActivity<ActivityEditProfileBinding>(R.layout.ac
         }
     }
 
-    private fun validData(): String {
+    private fun checkValidation(): String {
         // 소환사명 체크
         if (binding.championEt.text.isNullOrBlank()) {
             return "소환사명이 입력되지 않았습니다. 확인해주세요."

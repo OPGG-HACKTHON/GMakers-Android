@@ -2,6 +2,7 @@ package com.example.gmakers_android.feature.profile.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gmakers_android.R
@@ -68,6 +69,14 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
             }
             vm.preferChampions.value = championList
 
+            // valid data
+            checkValidation().let {
+                if (it.isNotBlank()) {
+                    Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+            }
+
             vm.editProfileAll()
         }
 
@@ -90,5 +99,14 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
                 }
             }
         }
+    }
+
+    private fun checkValidation(): String {
+        // champion check
+        if (vm.preferChampions.value?.size ?: 0 == 0) {
+            return "선호하는 챔피언을 선택해주세요."
+        }
+
+        return ""
     }
 }
