@@ -102,7 +102,6 @@
             android:layout_marginRight="30dp"
             android:textColor="@color/white"
             android:background="@drawable/shape_purple_1"
-            android:onClick="@{()->vm.doRegister()}"
             android:text="@string/sign"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

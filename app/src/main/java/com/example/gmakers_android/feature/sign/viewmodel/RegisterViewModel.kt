@@ -2,9 +2,11 @@ package com.example.gmakers_android.feature.sign.viewmodel
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.gmakers_android.MainApplication
 import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.sign.RegisterApi
@@ -34,7 +36,7 @@ class RegisterViewModel() : ViewModel() {
         }
     }
 
-    fun doRegister() {
+    fun doRegister(successCallback: () -> Unit) {
         if (userPassword.value?.length.toString() >= 8.toString() || userPassword.value?.length.toString() <= 20.toString()) {
             if (userPassword.value == userRePassword.value) {
                 val registerCall = registerInterface.doRegister(
@@ -45,11 +47,11 @@ class RegisterViewModel() : ViewModel() {
                 )
                 registerCall.enqueue(object : Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                        when (response.code()) {
-                            201 -> {
-                                _toastMessage.value = "성공"
-
-                            }
+                        if (response.isSuccessful) {
+                            _toastMessage.value = "성공"
+                            successCallback()
+                        } else {
+                            Toast.makeText(MainApplication.context(), response.message(), Toast.LENGTH_SHORT).show()
                         }
                     }
 

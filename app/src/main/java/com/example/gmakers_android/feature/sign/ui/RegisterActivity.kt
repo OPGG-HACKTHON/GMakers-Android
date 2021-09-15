@@ -18,6 +18,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding>(R.layout.activity
         binding.vm = vm
         backClick()
 
+        binding.registerBtn.setOnClickListener {
+            vm.doRegister {
+                finish()
+            }
+        }
     }
 
     override fun onStart() {
