@@ -11,7 +11,7 @@
             android:id="@+id/parent_layout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="335:232"
+            app:layout_constraintDimensionRatio="320:196"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
