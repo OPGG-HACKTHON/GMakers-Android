@@ -68,9 +68,9 @@
     <string name="position3">MID</string>
     <string name="position4">AD</string>
     <string name="position5">SUP</string>
-    <string name="RANKED_SOLO">RANKED_SOLO</string>
-    <string name="RANKED_FLEX">RANKED_FLEX</string>
-    <string name="NONE">NONE</string>
+    <string name="RANKED_SOLO">솔로랭크</string>
+    <string name="RANKED_FLEX">자유랭크</string>
+    <string name="NONE">표시안함</string>
     <string name="change_image">2.선호하는 챔피언을 선택해 주세요.</string>
     <string name="next">다음</string>
     <string name="choice_champio">선호하는 챔피언을</string>
