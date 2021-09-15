@@ -39,6 +39,11 @@ class SearchViewModel : ViewModel() {
             ) {
                 if (response.isSuccessful) {
                     response.body()?.let {
+                        if (it.isEmpty()) {
+                            _status.value = SearchStatus.NOT_FOUND
+                            return
+                        }
+
                         _profile.value = it[0]
                         _status.value = SearchStatus.FOUND
                         return
