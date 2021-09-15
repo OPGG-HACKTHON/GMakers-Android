@@ -62,7 +62,7 @@ object ChampionList {
         Champion(240,"Kled", "클레드"),
         Champion(96,"KogMaw", "코그모"),
         Champion(7,"LeBlanc", "르블랑"),
-        Champion(64,"LeeSin", "리신"),
+        Champion(64,"LeeSin", "리 신"),
         Champion(89,"Leona", "레오나"),
         Champion(127,"Lissandra", "리산드라"),
         Champion(236,"Lucian", "루시안"),
