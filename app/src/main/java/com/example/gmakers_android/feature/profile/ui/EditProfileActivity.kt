@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.gmakers_android.R
 import com.example.gmakers_android.base.BaseActivity
 import com.example.gmakers_android.databinding.ActivityEditProfileBinding
+import com.example.gmakers_android.feature.main.ui.MainActivity
 import com.example.gmakers_android.feature.profile.model.LineRequest
 import com.example.gmakers_android.feature.profile.viewmodel.EditProfileViewModel
 import com.google.android.material.chip.Chip

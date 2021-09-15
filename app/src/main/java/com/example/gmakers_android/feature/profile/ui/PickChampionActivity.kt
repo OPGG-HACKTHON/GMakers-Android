@@ -61,6 +61,10 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
         val adapter = ChampionAdapter(ChampionList.championNameList.toList())
         pickChampions.adapter = adapter
 
+        binding.backImg.setOnClickListener {
+            finish()
+        }
+
         binding.finishBtn.setOnClickListener {
             val championList = ArrayList<ChampionRequest>()
             adapter.selectedItems.forEachIndexed { index, i ->

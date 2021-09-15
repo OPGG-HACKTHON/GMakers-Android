@@ -37,6 +37,10 @@ class ProfileDetailActivity : BaseActivity<ActivityProfileDetailBinding>(R.layou
             }
         }
 
+        binding.backIv.setOnClickListener {
+            finish()
+        }
+
         val profileOwner = intent.getBooleanExtra(INTENT_KEY_PROFILE_OWNER, true)
         if (!profileOwner) {
             //binding.modifyIv.visibility = View.GONE
