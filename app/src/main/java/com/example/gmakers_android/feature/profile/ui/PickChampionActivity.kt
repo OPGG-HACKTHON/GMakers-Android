@@ -73,6 +73,11 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
             }
             vm.preferChampions.value = championList
 
+            if (vm.userName.value?.length == 2) {
+                val name: String = vm.userName.value!!
+                vm.userName.value = name[0] + " " + name[1]
+            }
+
             // valid data
             checkValidation().let {
                 if (it.isNotBlank()) {
