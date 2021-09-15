@@ -71,7 +71,7 @@
     <string name="RANKED_SOLO">RANKED_SOLO</string>
     <string name="RANKED_FLEX">RANKED_FLEX</string>
     <string name="NONE">NONE</string>
-    <string name="change_image">2. 소환사 아이콘을 제시된 이미지로 변경해주세요.</string>
+    <string name="change_image">2.선호하는 챔피언을 선택해 주세요.</string>
     <string name="next">다음</string>
     <string name="choice_champio">선호하는 챔피언을</string>
     <string name="choice_all">선택해 주세요</string>
