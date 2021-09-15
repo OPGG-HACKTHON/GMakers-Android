@@ -53,10 +53,10 @@ class PickChampionActivity : BaseActivity<ActivityPickChampionBinding>(R.layout.
         }
 
         val pickChampions = findViewById<RecyclerView>(R.id.pickChampion_rc)
-        val gridLayoutManager = GridLayoutManager(this, 4, GridLayoutManager.VERTICAL, false)
+        val gridLayoutManager = GridLayoutManager(this, 6, GridLayoutManager.VERTICAL, false)
         pickChampions.layoutManager = gridLayoutManager
-        binding.pickChampionRc.addItemDecoration(HorizontalItemDecorator(25))
-        binding.pickChampionRc.addItemDecoration(VerticalItemDecorator(20))
+        binding.pickChampionRc.addItemDecoration(HorizontalItemDecorator(12))
+        binding.pickChampionRc.addItemDecoration(VerticalItemDecorator(12))
 
         val adapter = ChampionAdapter(ChampionList.championNameList.toList())
         pickChampions.adapter = adapter
