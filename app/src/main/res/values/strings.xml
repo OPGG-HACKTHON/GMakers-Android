@@ -29,7 +29,7 @@
     <string name="search">검색</string>
     <string name="search_not_found">검색 결과가 없습니다. 정확히 입력해 주세요.</string>
     <string name="profile_basicInfo">프로필 기본정보</string>
-    <string name="want_intro">성향 기워드</string>
+    <string name="want_intro">성향 키워드</string>
     <string name="position_intro">포지션</string>
     <string name="first_check">1순위</string>
     <string name="second_check">2순위</string>
