@@ -35,7 +35,9 @@ class VerifyActivity : BaseActivity<ActivityVerifyBinding>(R.layout.activity_ver
         }
 
         binding.refreshTv.setOnClickListener {
-            vm.getAuthProfileIconId(profile!!.summonerId)
+            vm.getAuthProfileIconId(profile!!.summonerId) {
+                finish()
+            }
         }
 
         binding.changeTv.setOnClickListener {
@@ -49,7 +51,9 @@ class VerifyActivity : BaseActivity<ActivityVerifyBinding>(R.layout.activity_ver
         }
 
         // first init
-        vm.getAuthProfileIconId(profile!!.summonerId)
+        vm.getAuthProfileIconId(profile!!.summonerId) {
+            finish()
+        }
     }
 
     private fun initObserver() {

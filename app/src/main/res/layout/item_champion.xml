@@ -13,9 +13,8 @@
 
             <ImageView
                 android:id="@+id/champion_img"
-                android:layout_width="0dp"
+                android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_weight="1"
                 android:scaleType="fitCenter"
                 tools:srcCompat="@tools:sample/avatars" />
 

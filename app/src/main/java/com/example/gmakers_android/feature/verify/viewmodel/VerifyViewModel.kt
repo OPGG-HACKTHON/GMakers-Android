@@ -1,5 +1,6 @@
 package com.example.gmakers_android.feature.verify.viewmodel
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,7 +32,7 @@ class VerifyViewModel : ViewModel() {
         _status.value = VerifyStatus.INIT
     }
 
-    fun getAuthProfileIconId(summonerId: String) {
+    fun getAuthProfileIconId(summonerId: String, failCallback: () -> Unit) {
         val token = SharedPreferenceStorage.getInfo(MainApplication.context(), "access_token")
         authInterface.getAuthIconId(token, AuthIconRequest(summonerId)).enqueue(object :Callback<AuthIconResponse> {
             override fun onResponse(
@@ -42,6 +43,9 @@ class VerifyViewModel : ViewModel() {
                     response.body()?.let {
                         _profileIconId.value = it.iconId
                     }
+                } else {
+                    Toast.makeText(MainApplication.context(), response.message(), Toast.LENGTH_SHORT).show()
+                    failCallback()
                 }
             }
 
