@@ -11,9 +11,11 @@ import com.example.gmakers_android.data.ApiProvider
 import com.example.gmakers_android.data.local.SharedPreferenceStorage
 import com.example.gmakers_android.data.remote.sign.RegisterApi
 import com.example.gmakers_android.feature.sign.model.RegisterRequest
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 
 class RegisterViewModel() : ViewModel() {
@@ -51,7 +53,14 @@ class RegisterViewModel() : ViewModel() {
                             _toastMessage.value = "성공"
                             successCallback()
                         } else {
-                            Toast.makeText(MainApplication.context(), response.message(), Toast.LENGTH_SHORT).show()
+                            try {
+                                response.errorBody()?.let {
+                                    val jsonObject = JSONObject(it.string())
+                                    Toast.makeText(MainApplication.context(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show()
+                                }
+                            } catch (e: Exception) {
+                                Toast.makeText(MainApplication.context(), e.message, Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
 

@@ -11,9 +11,11 @@ import com.example.gmakers_android.data.remote.auth.AuthApi
 import com.example.gmakers_android.feature.verify.model.AuthConfirmResponse
 import com.example.gmakers_android.feature.verify.model.AuthIconRequest
 import com.example.gmakers_android.feature.verify.model.AuthIconResponse
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class VerifyViewModel : ViewModel() {
     val authInterface = ApiProvider.getInstnace().create(AuthApi::class.java)
@@ -44,7 +46,14 @@ class VerifyViewModel : ViewModel() {
                         _profileIconId.value = it.iconId
                     }
                 } else {
-                    Toast.makeText(MainApplication.context(), response.message(), Toast.LENGTH_SHORT).show()
+                    try {
+                        response.errorBody()?.let {
+                            val jsonObject = JSONObject(it.string())
+                            Toast.makeText(MainApplication.context(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(MainApplication.context(), e.message, Toast.LENGTH_SHORT).show()
+                    }
                     failCallback()
                 }
             }

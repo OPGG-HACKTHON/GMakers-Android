@@ -11,9 +11,11 @@ import com.example.gmakers_android.data.remote.editprofile.EditProfileApi
 import com.example.gmakers_android.feature.profile.model.ChampionRequest
 import com.example.gmakers_android.feature.profile.model.EditProfileRequest
 import com.example.gmakers_android.feature.profile.model.LineRequest
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 
 class PickChampionViewModel() :
     ViewModel() {
@@ -62,7 +64,14 @@ class PickChampionViewModel() :
                     _processStatus.value = ProcessStatus.IsSuccess
                 } else {
                     _processStatus.value = ProcessStatus.IsFail
-                    Toast.makeText(MainApplication.context(), response.message(), Toast.LENGTH_SHORT).show()
+                    try {
+                        response.errorBody()?.let {
+                            val jsonObject = JSONObject(it.string())
+                            Toast.makeText(MainApplication.context(), jsonObject.getString("message"), Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(MainApplication.context(), e.message, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
 
