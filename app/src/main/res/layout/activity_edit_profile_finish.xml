@@ -90,8 +90,9 @@
             android:id="@+id/next_btn"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="34dp"
             android:layout_marginRight="5dp"
+            android:layout_marginBottom="20dp"
             app:cornerRadius="10sp"
             app:strokeColor="@color/gray5"
             app:strokeWidth="2sp"
@@ -99,23 +100,24 @@
             android:textColor="@color/gray5"
             android:backgroundTint="@color/white"
             android:fontFamily="@font/notosans_bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline10"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/guideline12" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/certification_btn"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/certification_btn"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="34dp"
+            android:layout_marginBottom="20dp"
             app:cornerRadius="10sp"
             android:textColor="@color/white"
             android:fontFamily="@font/notosans_bold"
             android:text="@string/start_certification"
-            app:layout_constraintEnd_toStartOf="@+id/guideline11"
-            app:layout_constraintStart_toStartOf="@+id/guideline10"
-            app:layout_constraintTop_toTopOf="@+id/guideline12"
+            app:layout_constraintLeft_toRightOf="@id/next_btn"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:enabled="false"/>
 
         <androidx.constraintlayout.widget.Guideline
