@@ -1,5 +1,6 @@
 package com.example.gmakers_android.feature.profile.viewmodel
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -61,6 +62,7 @@ class PickChampionViewModel() :
                     _processStatus.value = ProcessStatus.IsSuccess
                 } else {
                     _processStatus.value = ProcessStatus.IsFail
+                    Toast.makeText(MainApplication.context(), response.message(), Toast.LENGTH_SHORT).show()
                 }
             }
 
