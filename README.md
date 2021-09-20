@@ -2,6 +2,13 @@
 
 > 개발자들의 전적 또는 자신을 소개할 수 있는 카드를 만들 수 있는 모바일 어플리케이션
 
+<img width="400" alt="스크린샷 2021-09-20 오전 9 18 17" src="https://user-images.githubusercontent.com/66577589/133947843-9f7f1a0f-e686-47b7-932f-9b66f67e1c35.png"><img width="400" alt="스크린샷 2021-09-20 오전 9 18 06" src="https://user-images.githubusercontent.com/66577589/133947883-38fd480b-dab1-42ca-af1f-7713dd46c56d.png">
+<img width="400" alt="스크린샷 2021-09-20 오전 9 17 04" src="https://user-images.githubusercontent.com/66577589/133947897-0a383c79-94dd-4f8b-94c3-67344767bc9d.png">
+<img width="400" alt="스크린샷 2021-09-20 오전 9 17 17" src="https://user-images.githubusercontent.com/66577589/133947906-324f2688-5a2e-4aff-8504-b987646ed4b7.png">
+<img width="400" alt="스크린샷 2021-09-20 오전 9 17 27" src="https://user-images.githubusercontent.com/66577589/133947939-025b0974-eea3-401a-acf1-6628f8651490.png">
+<img width="400" alt="스크린샷 2021-09-20 오전 9 17 47" src="https://user-images.githubusercontent.com/66577589/133947951-8fba7cda-d614-4f23-81d9-04c50f5152ea.png">
+<img width="400" alt="스크린샷 2021-09-20 오전 9 17 36" src="https://user-images.githubusercontent.com/66577589/133947964-28061365-45b9-4ca5-92a7-e6928f8378b7.png">
+
 
 
 ### 기술스택
