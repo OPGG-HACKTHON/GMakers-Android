@@ -1,6 +1,6 @@
 ## GMakers-Android
 
- 개발자들의 전적 또는 자신을 소개할 수 있는 카드를 만들 수 있는 모바일 어플리케이션
+롤 유저들이 자신의 프로필 카드를 생성할 수  모바일 어플리케이션
 
 <img width="400" alt="스크린샷 2021-09-20 오전 9 18 17" src="https://user-images.githubusercontent.com/66577589/133947843-9f7f1a0f-e686-47b7-932f-9b66f67e1c35.png"><img width="400" alt="스크린샷 2021-09-20 오전 9 18 06" src="https://user-images.githubusercontent.com/66577589/133947883-38fd480b-dab1-42ca-af1f-7713dd46c56d.png">
 <img width="400" alt="스크린샷 2021-09-20 오전 9 17 04" src="https://user-images.githubusercontent.com/66577589/133947897-0a383c79-94dd-4f8b-94c3-67344767bc9d.png">
